@@ -13,9 +13,8 @@ import {
   EducationSection,
   ReasoningSection,
 } from "@/components/cv";
-import { LocaleSwitcher } from "@/components/locale-switcher";
 import { RoleSwitcher } from "@/components/role-switcher";
-import { ThemeSwitcher } from "@/components/theme-switcher";
+import { SettingsMenu } from "@/components/settings-menu";
 import { DownloadPdfButton } from "@/components/download-pdf-button";
 import { Separator } from "@/components/ui/separator";
 
@@ -38,22 +37,9 @@ export function CVView() {
               <RoleSwitcher />
             </div>
             <Separator orientation="vertical" className="h-6 hidden sm:block" />
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-muted-foreground">
-                {labels.language}
-              </span>
-              <LocaleSwitcher />
-            </div>
-            <Separator orientation="vertical" className="h-6 hidden sm:block" />
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-muted-foreground">
-                {labels.theme}
-              </span>
-              <ThemeSwitcher />
-            </div>
-            <Separator orientation="vertical" className="h-6 hidden sm:block" />
             <DownloadPdfButton />
           </div>
+          <SettingsMenu />
         </div>
       </header>
 
