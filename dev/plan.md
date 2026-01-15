@@ -92,7 +92,7 @@ Create a small domain layer that prepares CV data for the UI.
 
 ### Goal
 
-Render the CV data in a clean, readable, and adaptable UI.
+Render the CV data in a clean, readable, and adaptable UI. (Make sure to use existent components in /components/ui)
 
 ### Tasks
 
@@ -251,3 +251,4 @@ it’s about showing the _right thing_, at the _right time_, in the _right forma
 ## Further considerations for development
 
 - Project bootstrapped with bun
+- Run `bun run build` and `bun run dev` for automated tests. Fix any issues that arise.

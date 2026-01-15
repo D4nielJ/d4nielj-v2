@@ -124,3 +124,31 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Print-friendly styles */
+@media print {
+  header {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .bg-background {
+    background: white !important;
+  }
+
+  .text-foreground {
+    color: black !important;
+  }
+
+  .text-muted-foreground {
+    color: #666 !important;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+}
