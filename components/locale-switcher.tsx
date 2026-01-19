@@ -15,6 +15,7 @@ export function LocaleSwitcher() {
     <div className="flex gap-1">
       {SUPPORTED_LOCALES.map((l) => (
         <Button
+          className="cursor-pointer"
           key={l}
           variant={locale === l ? "default" : "outline"}
           size="xs"

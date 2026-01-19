@@ -24,6 +24,7 @@ export function ThemeSwitcher() {
     <div className="flex gap-1">
       {themes.map((t) => (
         <Button
+          className="cursor-pointer"
           key={t}
           variant={theme === t ? "default" : "outline"}
           size="icon-xs"

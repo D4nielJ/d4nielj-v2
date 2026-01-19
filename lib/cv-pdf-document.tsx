@@ -160,6 +160,11 @@ export function CVPdfDocument({ cv, labels }: CVPdfDocumentProps) {
             ))}
           </View>
           <Text style={styles.summary}>{cv.profile.summary}</Text>
+          {cv.profile.roleSummary && (
+            <Text style={[styles.summary, { color: "#666" }]}>
+              {cv.profile.roleSummary}
+            </Text>
+          )}
         </View>
 
         {/* Experience */}

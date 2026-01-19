@@ -25,6 +25,9 @@ export interface Profile {
     url: string;
   }[];
   summary: LocalizedString;
+  roleSummaries: Partial<
+    Record<Exclude<VisibilityRole, "all">, LocalizedString>
+  >;
 }
 
 export interface Experience extends BaseEntry {

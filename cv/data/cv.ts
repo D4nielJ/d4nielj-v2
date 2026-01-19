@@ -18,8 +18,26 @@ export const cvData: CV = {
       { label: "LinkedIn", url: "https://linkedin.com/in/d4nielj" },
     ],
     summary: {
-      en: "Passionate about computer science and software development, I find pleasure in creating fast, efficient, and high-quality systems. Since a young age, I have always liked a good challenge or facing complex problems, which has pushed my career as a Software Engineer. Leveraging my background as a graphic designer and passion for aesthetics, I excel not only at automating UI tests but also ensuring front-end adherence to best practices. My pragmatic and evergreen coding style informs my efficient, easy-to-maintain automation frameworks.",
-      es: "Apasionado por la informática y el desarrollo de software, disfruto creando sistemas rápidos, eficientes y de alta calidad. Desde joven, siempre me han gustado los buenos desafíos y enfrentar problemas complejos, lo que ha impulsado mi carrera como Ingeniero de Automatización de Pruebas. Aprovechando mi experiencia como diseñador gráfico y mi pasión por la estética, destaco no solo en la automatización de pruebas de UI sino también en asegurar que el front-end siga las mejores prácticas. Mi estilo de código pragmático y perdurable informa mis frameworks de automatización eficientes y fáciles de mantener.",
+      en: "Passionate about computer science and software development, I find pleasure in creating fast, efficient, and high-quality systems. Since a young age, I have always liked a good challenge or facing complex problems, which has shaped my career as a Software Engineer.",
+      es: "Apasionado por la informática y el desarrollo de software, disfruto creando sistemas rápidos, eficientes y de alta calidad. Desde joven, siempre me han gustado los buenos desafíos y enfrentar problemas complejos, lo que ha dado forma a mi carrera como Ingeniero de Software.",
+    },
+    roleSummaries: {
+      fullstack: {
+        en: "My experience spans from React/Next.js frontends to Ruby on Rails and Node.js backends. As a code reviewer at Microverse, I mentored 300+ developers across the full stack, giving me deep insight into both domains and best practices.",
+        es: "Mi experiencia abarca desde frontends en React/Next.js hasta backends en Ruby on Rails y Node.js. Como revisor de código en Microverse, mentoreé a más de 300 desarrolladores en todo el stack, dándome una visión profunda de ambos dominios y mejores prácticas.",
+      },
+      frontend: {
+        en: "My background as a graphic designer combined with frontend development creates a unique skill set. I don't just code interfaces, I understand visual hierarchy, accessibility, and user-centric design principles that make applications truly shine.",
+        es: "Mi experiencia como diseñador gráfico combinada con desarrollo frontend crea un conjunto de habilidades único. No solo codifico interfaces, entiendo jerarquía visual, accesibilidad y principios de diseño centrado en el usuario que hacen que las aplicaciones realmente brillen.",
+      },
+      backend: {
+        en: "With hands-on experience in Ruby on Rails, Node.js, and Java Spring Framework, I build reliable, scalable backend systems. My focus on clean code and test-driven development ensures maintainable architectures.",
+        es: "Con experiencia práctica en Ruby on Rails, Node.js y Java Spring Framework, construyo sistemas backend confiables y escalables. Mi enfoque en código limpio y desarrollo guiado por pruebas asegura arquitecturas mantenibles.",
+      },
+      "test-automation": {
+        en: "With 3+ years at Globant working on Disney Parks' complex POS systems, I've built frameworks handling physical hardware integration, image-based selectors, and cross-platform testing. My pragmatic coding style ensures maintainable, scalable automation.",
+        es: "Con más de 3 años en Globant trabajando en los complejos sistemas POS de Disney Parks, he construido frameworks que manejan integración de hardware físico, selectores basados en imágenes y pruebas multiplataforma. Mi estilo de código pragmático asegura automatización mantenible y escalable.",
+      },
     },
   },
   experience: [

@@ -22,7 +22,12 @@ export function SettingsMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon-xs" aria-label="Settings">
+        <Button
+          variant="outline"
+          size="icon-xs"
+          aria-label="Settings"
+          className="cursor-pointer"
+        >
           <HugeiconsIcon icon={Settings01Icon} className="size-3.5" />
         </Button>
       </DropdownMenuTrigger>

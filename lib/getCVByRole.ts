@@ -21,6 +21,7 @@ export interface ResolvedProfile {
   location: string;
   links: { label: string; url: string }[];
   summary: string;
+  roleSummary?: string;
 }
 
 export interface ResolvedExperience {
@@ -84,7 +85,13 @@ function isVisibleFor(entry: BaseEntry, role: VisibilityRole): boolean {
   return entry.visibleFor.includes("all") || entry.visibleFor.includes(role);
 }
 
-function resolveProfile(profile: Profile, locale: Locale): ResolvedProfile {
+function resolveProfile(
+  profile: Profile,
+  locale: Locale,
+  role: VisibilityRole,
+): ResolvedProfile {
+  const roleSummary =
+    profile.roleSummaries[role as Exclude<VisibilityRole, "all">];
   return {
     name: profile.name,
     title: resolveString(profile.title, locale),
@@ -93,6 +100,7 @@ function resolveProfile(profile: Profile, locale: Locale): ResolvedProfile {
     location: resolveString(profile.location, locale),
     links: profile.links,
     summary: resolveString(profile.summary, locale),
+    roleSummary: roleSummary ? resolveString(roleSummary, locale) : undefined,
   };
 }
 
@@ -159,7 +167,7 @@ export function getCVByRole(
   role: VisibilityRole,
 ): ResolvedCV {
   return {
-    profile: resolveProfile(cv.profile, locale),
+    profile: resolveProfile(cv.profile, locale, role),
     experience: cv.experience
       .filter((exp) => isVisibleFor(exp, role))
       .map((exp) => resolveExperience(exp, locale)),

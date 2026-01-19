@@ -31,6 +31,7 @@ export function RoleSwitcher() {
     <div className="flex flex-wrap gap-1">
       {SUPPORTED_ROLES.map((r) => (
         <Button
+          className="cursor-pointer"
           key={r}
           variant={role === r ? "default" : "outline"}
           size="xs"

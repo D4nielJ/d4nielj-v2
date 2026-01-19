@@ -35,7 +35,12 @@ export function DownloadPdfButton() {
   };
 
   return (
-    <Button onClick={handleDownload} disabled={isLoading} size="sm">
+    <Button
+      onClick={handleDownload}
+      disabled={isLoading}
+      size="sm"
+      className="cursor-pointer"
+    >
       <HugeiconsIcon icon={Download01Icon} data-icon="inline-start" />
       {isLoading ? "..." : labels.downloadPdf}
     </Button>

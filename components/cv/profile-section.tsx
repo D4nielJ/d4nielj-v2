@@ -57,7 +57,10 @@ export function ProfileSection({ profile }: ProfileSectionProps) {
         ))}
       </div>
 
-      <p className="text-sm leading-relaxed max-w-2xl">{profile.summary}</p>
+      <div className="space-y-3 max-w-2xl text-sm leading-relaxed">
+        <p>{profile.summary}</p>
+        {profile.roleSummary && <p>{profile.roleSummary}</p>}
+      </div>
     </section>
   );
 }
