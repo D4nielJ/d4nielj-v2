@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 22,
     fontWeight: "bold",
-    marginBottom: 4,
+    marginBottom: 8,
   },
   title: {
     fontSize: 12,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   section: {
-    marginTop: 16,
+    marginTop: 8,
   },
   sectionTitle: {
     fontSize: 12,
@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
   },
   card: {
-    marginBottom: 12,
-    paddingBottom: 8,
+    marginBottom: 8,
+    paddingBottom: 4,
   },
   cardTitle: {
     fontSize: 11,
@@ -71,17 +71,19 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   highlight: {
+    fontSize: 9,
     marginBottom: 2,
   },
   badgeRow: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 4,
+    alignItems: "center",
+    gap: 8,
     marginTop: 6,
   },
   badge: {
     backgroundColor: "#f0f0f0",
-    padding: "2 6",
+    padding: "6 6 2 6",
     fontSize: 8,
   },
   skillCategory: {
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
   projectGrid: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 12,
+    gap: 8,
   },
   projectCard: {
     width: "48%",
@@ -161,9 +163,7 @@ export function CVPdfDocument({ cv, labels }: CVPdfDocumentProps) {
           </View>
           <Text style={styles.summary}>{cv.profile.summary}</Text>
           {cv.profile.roleSummary && (
-            <Text style={[styles.summary, { color: "#666" }]}>
-              {cv.profile.roleSummary}
-            </Text>
+            <Text style={[styles.summary]}>{cv.profile.roleSummary}</Text>
           )}
         </View>
 

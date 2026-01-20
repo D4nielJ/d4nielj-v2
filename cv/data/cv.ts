@@ -18,27 +18,10 @@ export const cvData: CV = {
       { label: "LinkedIn", url: "https://linkedin.com/in/d4nielj" },
     ],
     summary: {
-      en: "Passionate about computer science and software development, I find pleasure in creating fast, efficient, and high-quality systems. Since a young age, I have always liked a good challenge or facing complex problems, which has shaped my career as a Software Engineer.",
-      es: "Apasionado por la informática y el desarrollo de software, disfruto creando sistemas rápidos, eficientes y de alta calidad. Desde joven, siempre me han gustado los buenos desafíos y enfrentar problemas complejos, lo que ha dado forma a mi carrera como Ingeniero de Software.",
+      en: "Passionate about computer science and software development, I find pleasure in creating fast, efficient, and high-quality systems. Since a young age, I have always liked a good challenge or facing complex problems, which has shaped my career as a Software Engineer. Nowadays, I'm thrilled to leverage the power of modern web technologies and AI to build innovative solutions that make a difference.",
+      es: "Apasionado por la informática y el desarrollo de software, encuentro placer en crear sistemas rápidos, eficientes y de alta calidad. Desde joven, siempre me han gustado los buenos desafíos o enfrentar problemas complejos, lo que ha moldeado mi carrera como Ingeniero de Software. Hoy en día, estoy emocionado de aprovechar el poder de las tecnologías web modernas y la IA para construir soluciones innovadoras que marquen la diferencia.",
     },
-    roleSummaries: {
-      fullstack: {
-        en: "My experience spans from React/Next.js frontends to Ruby on Rails and Node.js backends. As a code reviewer at Microverse, I mentored 300+ developers across the full stack, giving me deep insight into both domains and best practices.",
-        es: "Mi experiencia abarca desde frontends en React/Next.js hasta backends en Ruby on Rails y Node.js. Como revisor de código en Microverse, mentoreé a más de 300 desarrolladores en todo el stack, dándome una visión profunda de ambos dominios y mejores prácticas.",
-      },
-      frontend: {
-        en: "My background as a graphic designer combined with frontend development creates a unique skill set. I don't just code interfaces, I understand visual hierarchy, accessibility, and user-centric design principles that make applications truly shine.",
-        es: "Mi experiencia como diseñador gráfico combinada con desarrollo frontend crea un conjunto de habilidades único. No solo codifico interfaces, entiendo jerarquía visual, accesibilidad y principios de diseño centrado en el usuario que hacen que las aplicaciones realmente brillen.",
-      },
-      backend: {
-        en: "With hands-on experience in Ruby on Rails, Node.js, and Java Spring Framework, I build reliable, scalable backend systems. My focus on clean code and test-driven development ensures maintainable architectures.",
-        es: "Con experiencia práctica en Ruby on Rails, Node.js y Java Spring Framework, construyo sistemas backend confiables y escalables. Mi enfoque en código limpio y desarrollo guiado por pruebas asegura arquitecturas mantenibles.",
-      },
-      "test-automation": {
-        en: "With 3+ years at Globant working on Disney Parks' complex POS systems, I've built frameworks handling physical hardware integration, image-based selectors, and cross-platform testing. My pragmatic coding style ensures maintainable, scalable automation.",
-        es: "Con más de 3 años en Globant trabajando en los complejos sistemas POS de Disney Parks, he construido frameworks que manejan integración de hardware físico, selectores basados en imágenes y pruebas multiplataforma. Mi estilo de código pragmático asegura automatización mantenible y escalable.",
-      },
-    },
+    roleSummaries: {},
   },
   experience: [
     {
@@ -318,8 +301,8 @@ export const cvData: CV = {
         es: "Buscando a alguien que pueda saltar entre frontend y backend sin problemas.",
       },
       approach: {
-        en: "My experience spans from React/Next.js frontends to Ruby on Rails and Node.js backends. As a code reviewer at Microverse, I've mentored 300+ developers across the full stack, giving me deep insight into both domains and best practices.",
-        es: "Mi experiencia abarca desde frontends en React/Next.js hasta backends en Ruby on Rails y Node.js. Como revisor de código en Microverse, he mentoreado a más de 300 desarrolladores en todo el stack, dándome una visión profunda de ambos dominios y mejores prácticas.",
+        en: "My experience spans from React/Next.js frontends to Ruby on Rails and Node.js backends. With 4 years at Globant working on Disney Parks' complex systems and freelance projects, I've built and work on end-to-end solutions that deliver great user experiences and robust functionality.",
+        es: "Mi experiencia abarca desde frontends en React/Next.js hasta backends en Ruby on Rails y Node.js. Con 4 años en Globant trabajando en los complejos sistemas de Disney Parks y proyectos freelance, he construido y trabajado en soluciones de extremo a extremo que ofrecen excelentes experiencias de usuario y funcionalidad robusta.",
       },
       visibleFor: ["fullstack"],
     },
