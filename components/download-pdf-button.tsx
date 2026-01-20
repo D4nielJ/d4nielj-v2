@@ -7,8 +7,9 @@ import { useLocale } from "@/i18n/locale-provider";
 import { useRole } from "@/context/role-context";
 import { uiLabels } from "@/i18n/labels";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
-export function DownloadPdfButton() {
+export function DownloadPdfButton({ className }: { className?: string }) {
   const { locale } = useLocale();
   const { role } = useRole();
   const labels = uiLabels[locale];
@@ -39,7 +40,7 @@ export function DownloadPdfButton() {
       onClick={handleDownload}
       disabled={isLoading}
       size="sm"
-      className="cursor-pointer"
+      className={cn("cursor-pointer", className)}
     >
       <HugeiconsIcon icon={Download01Icon} data-icon="inline-start" />
       {isLoading ? "..." : labels.downloadPdf}

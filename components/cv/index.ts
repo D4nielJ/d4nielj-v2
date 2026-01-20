@@ -4,3 +4,4 @@ export { ProjectsSection } from "./projects-section";
 export { SkillsSection } from "./skills-section";
 export { EducationSection } from "./education-section";
 export { ReasoningSection } from "./reasoning-section";
+export { CVToolbar } from "./cv-toolbar";

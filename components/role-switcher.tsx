@@ -7,6 +7,13 @@ import {
 } from "@/context/role-context";
 import { Button } from "@/components/ui/button";
 import { useLocale, Locale } from "@/i18n/locale-provider";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const roleLabels: Record<Locale, Record<SelectableRole, string>> = {
   en: {
@@ -28,18 +35,38 @@ export function RoleSwitcher() {
   const { locale } = useLocale();
 
   return (
-    <div className="flex flex-wrap gap-1">
-      {SUPPORTED_ROLES.map((r) => (
-        <Button
-          className="cursor-pointer"
-          key={r}
-          variant={role === r ? "default" : "outline"}
-          size="xs"
-          onClick={() => setRole(r)}
+    <>
+      <div className="hidden lg:flex flex-col gap-1">
+        {SUPPORTED_ROLES.map((r) => (
+          <Button
+            className="cursor-pointer justify-start"
+            key={r}
+            variant={role === r ? "default" : "ghost"}
+            size="sm"
+            onClick={() => setRole(r)}
+          >
+            {roleLabels[locale][r]}
+          </Button>
+        ))}
+      </div>
+
+      <div className="lg:hidden">
+        <Select
+          value={role}
+          onValueChange={(v) => setRole(v as SelectableRole)}
         >
-          {roleLabels[locale][r]}
-        </Button>
-      ))}
-    </div>
+          <SelectTrigger className="w-45">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            {SUPPORTED_ROLES.map((r) => (
+              <SelectItem key={r} value={r}>
+                {roleLabels[locale][r]}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+    </>
   );
 }

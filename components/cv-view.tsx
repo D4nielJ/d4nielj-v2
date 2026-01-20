@@ -12,10 +12,8 @@ import {
   SkillsSection,
   EducationSection,
   ReasoningSection,
+  CVToolbar,
 } from "@/components/cv";
-import { RoleSwitcher } from "@/components/role-switcher";
-import { SettingsMenu } from "@/components/settings-menu";
-import { DownloadPdfButton } from "@/components/download-pdf-button";
 import { Separator } from "@/components/ui/separator";
 
 export function CVView() {
@@ -26,24 +24,11 @@ export function CVView() {
   const labels = uiLabels[locale];
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
-        <div className="container mx-auto px-4 py-3 max-w-3xl flex justify-between items-center">
-          <div className="flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-muted-foreground">
-                {labels.viewAs}
-              </span>
-              <RoleSwitcher />
-            </div>
-            <Separator orientation="vertical" className="h-6 hidden sm:block" />
-            <DownloadPdfButton />
-          </div>
-          <SettingsMenu />
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 py-8 space-y-8 max-w-3xl">
+    <div className="animate-in fade-in container mx-auto px-4 py-8 duration-500 lg:max-w-7xl lg:flex lg:justify-center lg:gap-10">
+      <aside className="h-fit lg:w-52 lg:sticky lg:top-24 lg:shrink-0">
+        <CVToolbar />
+      </aside>
+      <main className="w-full max-w-3xl flex-1 space-y-8">
         <ProfileSection profile={cv.profile} />
         <Separator />
         <ExperienceSection
@@ -55,6 +40,7 @@ export function CVView() {
         <EducationSection education={cv.education} title={labels.education} />
         <ReasoningSection reasoning={cv.reasoning} title={labels.reasoning} />
       </main>
+      <div className="hidden lg:w-52 lg:block lg:shrink-0" aria-hidden="true" />
     </div>
   );
 }
