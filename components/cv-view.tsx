@@ -28,10 +28,7 @@ export function CVView() {
       <main className="w-full space-y-8">
         <ProfileSection profile={cv.profile} />
         <Separator />
-        <ExperienceSection
-          experience={cv.experience}
-          title={t("experience")}
-        />
+        <ExperienceSection experience={cv.experience} title={t("experience")} />
         <ProjectsSection projects={cv.projects} title={t("projects")} />
         <SkillsSection skills={cv.skills} title={t("skills")} />
         <EducationSection education={cv.education} title={t("education")} />

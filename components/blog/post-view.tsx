@@ -1,5 +1,3 @@
-"use client";
-
 import { ResolvedBlogPost } from "@/storage/schema/blog";
 import { Figure } from "./figure";
 import { Badge } from "@/components/ui/badge";

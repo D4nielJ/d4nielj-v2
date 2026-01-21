@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
@@ -6,6 +7,7 @@ import { RoleProvider } from "@/context/role-context";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { routing } from "@/i18n/routing";
+import Loading from "./loading";
 
 type Props = {
   children: React.ReactNode;
@@ -33,9 +35,11 @@ export default async function LocaleLayout({ children, params }: Props) {
     <ThemeProvider>
       <NextIntlClientProvider messages={messages}>
         <RoleProvider>
-          <div className="min-h-screen bg-background flex flex-col">
+          <div className="bg-background min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1">
+              <Suspense fallback={<Loading />}>{children}</Suspense>
+            </main>
             <Footer />
           </div>
         </RoleProvider>

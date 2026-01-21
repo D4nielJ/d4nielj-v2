@@ -10,6 +10,8 @@ import BaseGrid, {
 import { GitHubStatsDisplay } from "@/components/home";
 import { Separator } from "@/components/ui/separator";
 import { Locale } from "@/storage/schema/cv";
+import { StatsSkeleton } from "@/components/home/github-stats";
+import { Suspense } from "react";
 
 export default async function HomePage() {
   const locale = await getLocale();
@@ -59,7 +61,9 @@ export default async function HomePage() {
 
           {/* GitHub Stats */}
           <section>
-            <GitHubStatsDisplay />
+            <Suspense fallback={<StatsSkeleton />}>
+              <GitHubStatsDisplay />
+            </Suspense>
           </section>
         </main>
       </MainGridColumn>

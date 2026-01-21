@@ -29,7 +29,7 @@ export function Navbar() {
         <LeftGridColumn />
         <MainGridColumn>
           <nav className="mx-auto w-full flex justify-between items-center py-2">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
