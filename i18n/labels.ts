@@ -32,6 +32,12 @@ export const uiLabels: Record<Locale, Record<string, string>> = {
     cloneCli: "GitHub CLI",
     copied: "Copied!",
     loadMore: "Load more",
+    // GitHub Stats
+    publicRepos: "Public repos",
+    followers: "Followers",
+    following: "Following",
+    yearsOnGitHub: "Years on GitHub",
+    topLanguages: "Top languages",
   },
   es: {
     // Navigation
@@ -64,5 +70,11 @@ export const uiLabels: Record<Locale, Record<string, string>> = {
     cloneCli: "GitHub CLI",
     copied: "¡Copiado!",
     loadMore: "Cargar más",
+    // GitHub Stats
+    publicRepos: "Repos públicos",
+    followers: "Seguidores",
+    following: "Siguiendo",
+    yearsOnGitHub: "Años en GitHub",
+    topLanguages: "Lenguajes principales",
   },
 };

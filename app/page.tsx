@@ -10,6 +10,8 @@ import BaseGrid, {
   MainGridColumn,
   RightGridColumn,
 } from "@/components/ui/base-grid";
+import { GitHubStatsDisplay } from "@/components/home";
+import { Separator } from "@/components/ui/separator";
 
 export default function HomePage() {
   const { locale } = useLocale();
@@ -52,6 +54,13 @@ export default function HomePage() {
                 {labels.cv} →
               </Link>
             </div>
+          </section>
+
+          <Separator />
+
+          {/* GitHub Stats */}
+          <section>
+            <GitHubStatsDisplay />
           </section>
         </main>
       </MainGridColumn>
