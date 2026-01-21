@@ -12,7 +12,7 @@ export async function Figure({ figure, number }: FigureProps) {
 
   return (
     <figure className="my-8 space-y-3">
-      <div className="relative aspect-video w-full overflow-hidden rounded-lg border bg-muted">
+      <div className="bg-muted aspect-video w-full overflow-hidden relative rounded-lg border">
         <Image
           src={figure.src}
           alt={figure.alt}
@@ -21,7 +21,7 @@ export async function Figure({ figure, number }: FigureProps) {
           sizes="(max-width: 768px) 100vw, 768px"
         />
       </div>
-      <figcaption className="text-sm text-muted-foreground">
+      <figcaption className="text-muted-foreground text-sm">
         <span className="font-semibold">
           {t("figure")} {number}.
         </span>{" "}

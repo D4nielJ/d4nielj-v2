@@ -16,10 +16,10 @@ export const postsData: BlogPost[] = [
     figures: [
       {
         id: "fig-1",
-        src: "/images/blog/ai-coding-assistant.png",
+        src: "/images/blog/post-1/developer.png",
         alt: {
-          en: "A developer working alongside an AI coding assistant",
-          es: "Un desarrollador trabajando junto a un asistente de código IA",
+          en: "A charismatic developer laughs while working at the office",
+          es: "Un desarrollador carismático ríe mientras trabaja en la oficina",
         },
         caption: {
           en: "The modern development workflow increasingly involves AI pair programming, where the assistant suggests implementations while the developer focuses on architecture and review.",
@@ -28,14 +28,14 @@ export const postsData: BlogPost[] = [
       },
       {
         id: "fig-2",
-        src: "/images/blog/ai-productivity-chart.png",
+        src: "/images/blog/post-1/graph.png",
         alt: {
           en: "Chart showing developer productivity trends with AI adoption",
           es: "Gráfico mostrando tendencias de productividad de desarrolladores con adopción de IA",
         },
         caption: {
-          en: "Studies from 2025 indicate a 40-60% increase in code output when developers leverage AI assistants, though the quality metrics show more nuanced results depending on task complexity.",
-          es: "Estudios de 2025 indican un aumento del 40-60% en la producción de código cuando los desarrolladores aprovechan asistentes de IA, aunque las métricas de calidad muestran resultados más matizados dependiendo de la complejidad de la tarea.",
+          en: "Code Volume Growth Analysis: AI-generated code progression from 3,000 lines (March 2025) to 2.26M lines (August 2025). Around 40% AI generated code shipped in production in August 2025 and 28% increase in production code volume.",
+          es: "Análisis de Crecimiento del Volumen de Código: Progresión del código generado por IA desde 3,000 líneas (marzo 2025) hasta 2.26M líneas (agosto 2025). Alrededor del 40% del código generado por IA se implementó en producción en agosto de 2025 y un aumento del 28% en el volumen de código en producción.",
         },
       },
     ],
