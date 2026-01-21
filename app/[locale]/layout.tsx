@@ -7,12 +7,76 @@ import { RoleProvider } from "@/context/role-context";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { routing } from "@/i18n/routing";
+import { cvData } from "@/storage/data/cv";
 import Loading from "./loading";
+import type { Metadata } from "next";
 
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://danielj.me";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const profile = cvData.profile;
+
+  const title =
+    locale === "es"
+      ? `${profile.name} | Ingeniero de Software`
+      : `${profile.name} | Software Engineer`;
+
+  const description =
+    typeof profile.summary === "string"
+      ? profile.summary
+      : profile.summary[locale as "en" | "es"];
+
+  return {
+    title: {
+      template: `%s | ${profile.name}`,
+      default: title,
+    },
+    description,
+    metadataBase: new URL(BASE_URL),
+    alternates: {
+      canonical: `${BASE_URL}/${locale}`,
+      languages: {
+        en: `${BASE_URL}/en`,
+        es: `${BASE_URL}/es`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: BASE_URL,
+      siteName: `${profile.name} Portfolio`,
+      locale: locale === "es" ? "es_ES" : "en_US",
+      alternateLocale: locale === "es" ? "en_US" : "es_ES",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
