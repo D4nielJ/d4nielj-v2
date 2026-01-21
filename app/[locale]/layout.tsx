@@ -16,7 +16,7 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://danielj.me";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://d4nielj.me";
 
 export async function generateMetadata({
   params,

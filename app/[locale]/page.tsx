@@ -13,7 +13,7 @@ import { Locale } from "@/storage/schema/cv";
 import { StatsSkeleton } from "@/components/home/github-stats";
 import { Suspense } from "react";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://danielj.dev";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://d4nielj.me";
 
 export default async function HomePage() {
   const locale = await getLocale();
