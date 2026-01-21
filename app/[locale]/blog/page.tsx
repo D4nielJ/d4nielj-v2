@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { useLocale } from "@/i18n/locale-provider";
-import { uiLabels } from "@/i18n/labels";
+import { getLocale, getTranslations } from "next-intl/server";
 import { postsData } from "@/storage/data/posts";
 import { resolveBlogPost } from "@/storage/schema/blog";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,12 +9,14 @@ import BaseGrid, {
   MainGridColumn,
   RightGridColumn,
 } from "@/components/ui/base-grid";
+import { Locale } from "@/storage/schema/cv";
 
-export default function BlogPage() {
-  const { locale } = useLocale();
-  const labels = uiLabels[locale];
+export default async function BlogPage() {
+  const locale = await getLocale();
+  const validLocale = locale as Locale;
+  const t = await getTranslations("nav");
 
-  const posts = postsData.map((post) => resolveBlogPost(post, locale));
+  const posts = postsData.map((post) => resolveBlogPost(post, validLocale));
 
   const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
@@ -34,7 +33,7 @@ export default function BlogPage() {
       <MainGridColumn>
         <main className="w-full py-8 space-y-8">
           <header>
-            <h1 className="text-2xl font-bold tracking-tight">{labels.blog}</h1>
+            <h1 className="text-2xl font-bold tracking-tight">{t("blog")}</h1>
           </header>
 
           <div className="space-y-4">

@@ -3,16 +3,15 @@
 import { Button } from "@/components/ui/button";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Download01Icon } from "@hugeicons/core-free-icons";
-import { useLocale } from "@/i18n/locale-provider";
+import { useLocale, useTranslations } from "next-intl";
 import { useRole } from "@/context/role-context";
-import { uiLabels } from "@/i18n/labels";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 export function DownloadPdfButton({ className }: { className?: string }) {
-  const { locale } = useLocale();
+  const locale = useLocale();
   const { role } = useRole();
-  const labels = uiLabels[locale];
+  const t = useTranslations("cv");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDownload = async () => {
@@ -43,7 +42,7 @@ export function DownloadPdfButton({ className }: { className?: string }) {
       className={cn("cursor-pointer", className)}
     >
       <HugeiconsIcon icon={Download01Icon} data-icon="inline-start" />
-      {isLoading ? "..." : labels.downloadPdf}
+      {isLoading ? "..." : t("downloadPdf")}
     </Button>
   );
 }

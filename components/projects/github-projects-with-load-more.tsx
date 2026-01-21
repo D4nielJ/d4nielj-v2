@@ -6,8 +6,7 @@ import { GitHubProjectCard } from "./github-project-card";
 import { GitHubProjectsSkeleton } from "./github-projects-skeleton";
 import { fetchAllGitHubRepos } from "@/lib/github";
 import { Button } from "@/components/ui/button";
-import { useLocale } from "@/i18n/locale-provider";
-import { uiLabels } from "@/i18n/labels";
+import { useTranslations } from "next-intl";
 
 const INITIAL_COUNT = 8;
 const LOAD_MORE_COUNT = 6;
@@ -19,8 +18,7 @@ interface GitHubProjectsWithLoadMoreProps {
 export function GitHubProjectsWithLoadMore({
   title,
 }: GitHubProjectsWithLoadMoreProps) {
-  const { locale } = useLocale();
-  const labels = uiLabels[locale];
+  const t = useTranslations("github");
   const [allRepos, setAllRepos] = useState<GitHubRepo[]>([]);
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
   const [loading, setLoading] = useState(true);
@@ -72,7 +70,7 @@ export function GitHubProjectsWithLoadMore({
             onClick={handleLoadMore}
             className="cursor-pointer"
           >
-            {labels.loadMore}
+            {t("loadMore")}
           </Button>
         </div>
       )}

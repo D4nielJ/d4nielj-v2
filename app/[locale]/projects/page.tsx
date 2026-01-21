@@ -1,7 +1,5 @@
-import { cookies } from "next/headers";
+import { getTranslations } from "next-intl/server";
 import { GitHubProjectsWithLoadMore } from "@/components/projects";
-import { uiLabels } from "@/i18n/labels";
-import { Locale } from "@/storage/schema/cv";
 import BaseGrid, {
   LeftGridColumn,
   MainGridColumn,
@@ -9,16 +7,14 @@ import BaseGrid, {
 } from "@/components/ui/base-grid";
 
 export default async function ProjectsPage() {
-  const cookieStore = await cookies();
-  const locale = (cookieStore.get("locale")?.value as Locale) || "en";
-  const labels = uiLabels[locale];
+  const t = await getTranslations("github");
 
   return (
     <BaseGrid>
       <LeftGridColumn />
       <MainGridColumn>
         <main className="w-full py-8">
-          <GitHubProjectsWithLoadMore title={labels.githubProjects} />
+          <GitHubProjectsWithLoadMore title={t("projects")} />
         </main>
       </MainGridColumn>
       <RightGridColumn />

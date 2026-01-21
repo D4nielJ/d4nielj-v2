@@ -1,16 +1,12 @@
-"use client";
-
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Mail01Icon, Github01Icon } from "@hugeicons/core-free-icons";
-import { useLocale } from "@/i18n/locale-provider";
-import { uiLabels } from "@/i18n/labels";
+import { getTranslations } from "next-intl/server";
 import { cvData } from "@/storage/data/cv";
 
 const REPO_URL = "https://github.com/D4nielJ/d4nielj-v2";
 
-export function Footer() {
-  const { locale } = useLocale();
-  const labels = uiLabels[locale];
+export async function Footer() {
+  const t = await getTranslations("footer");
 
   const githubLink = cvData.profile.links.find((link) =>
     link.url.includes("github.com"),
@@ -50,7 +46,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="transition-colors hover:text-foreground"
           >
-            {labels.viewSourceCode}
+            {t("viewSourceCode")}
           </a>
         </div>
       </div>

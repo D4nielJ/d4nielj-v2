@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { useLocale } from "@/i18n/locale-provider";
-import { uiLabels } from "@/i18n/labels";
+import { getTranslations } from "next-intl/server";
 import { ResolvedBlogFigure } from "@/storage/schema/blog";
 
 interface FigureProps {
@@ -10,9 +7,8 @@ interface FigureProps {
   number: number;
 }
 
-export function Figure({ figure, number }: FigureProps) {
-  const { locale } = useLocale();
-  const labels = uiLabels[locale];
+export async function Figure({ figure, number }: FigureProps) {
+  const t = await getTranslations("blog");
 
   return (
     <figure className="my-8 space-y-3">
@@ -27,7 +23,7 @@ export function Figure({ figure, number }: FigureProps) {
       </div>
       <figcaption className="text-sm text-muted-foreground">
         <span className="font-semibold">
-          {labels.figure} {number}.
+          {t("figure")} {number}.
         </span>{" "}
         {figure.caption}
       </figcaption>

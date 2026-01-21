@@ -12,16 +12,14 @@ import { Badge } from "@/components/ui/badge";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { StarIcon, GitForkIcon, Link01Icon } from "@hugeicons/core-free-icons";
 import { CloneDropdown } from "./clone-dropdown";
-import { useLocale } from "@/i18n/locale-provider";
-import { uiLabels } from "@/i18n/labels";
+import { useTranslations } from "next-intl";
 
 interface GitHubProjectCardProps {
   repo: GitHubRepo;
 }
 
 export function GitHubProjectCard({ repo }: GitHubProjectCardProps) {
-  const { locale } = useLocale();
-  const labels = uiLabels[locale];
+  const t = useTranslations("github");
 
   return (
     <Card size="default">
@@ -45,14 +43,14 @@ export function GitHubProjectCard({ repo }: GitHubProjectCardProps) {
             </CardTitle>
           </div>
           <div className="text-muted-foreground flex shrink-0 items-center gap-3 text-xs">
-            <span className="flex items-center gap-1" title={labels.stars}>
+            <span className="flex items-center gap-1" title={t("stars")}>
               <HugeiconsIcon
                 icon={StarIcon}
                 className="size-3.5 relative -top-px"
               />
               {repo.stargazers_count}
             </span>
-            <span className="flex items-center gap-1" title={labels.forks}>
+            <span className="flex items-center gap-1" title={t("forks")}>
               <HugeiconsIcon icon={GitForkIcon} className="size-4" />
               {repo.forks_count}
             </span>

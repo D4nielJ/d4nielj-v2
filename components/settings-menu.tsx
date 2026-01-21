@@ -10,14 +10,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Settings01Icon } from "@hugeicons/core-free-icons";
-import { useLocale } from "@/i18n/locale-provider";
-import { uiLabels } from "@/i18n/labels";
+import { useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 
 export function SettingsMenu() {
-  const { locale } = useLocale();
-  const labels = uiLabels[locale];
+  const t = useTranslations("cv");
 
   return (
     <DropdownMenu>
@@ -32,12 +30,12 @@ export function SettingsMenu() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-48">
-        <DropdownMenuLabel>{labels.language}</DropdownMenuLabel>
+        <DropdownMenuLabel>{t("language")}</DropdownMenuLabel>
         <div className="px-2 pb-2">
           <LocaleSwitcher />
         </div>
         <DropdownMenuSeparator />
-        <DropdownMenuLabel>{labels.theme}</DropdownMenuLabel>
+        <DropdownMenuLabel>{t("theme")}</DropdownMenuLabel>
         <div className="px-2 pb-2">
           <ThemeSwitcher />
         </div>

@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Daniel J",
+    "cv": "About",
+    "blog": "Blog",
+    "projects": "Proyectos"
+  },
+  "cv": {
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "education": "Educación",
+    "reasoning": "¿Por qué yo?",
+    "downloadPdf": "Descargar PDF",
+    "viewAs": "Ver como:",
+    "language": "Idioma:",
+    "theme": "Tema:"
+  },
+  "blog": {
+    "figure": "Fig.",
+    "readMore": "Leer más",
+    "recentPosts": "Publicaciones Recientes"
+  },
+  "footer": {
+    "viewSourceCode": "Ver código fuente"
+  },
+  "github": {
+    "projects": "Proyectos en GitHub",
+    "stars": "estrellas",
+    "forks": "forks",
+    "clone": "Clonar",
+    "cloneHttps": "HTTPS",
+    "cloneSsh": "SSH",
+    "cloneCli": "GitHub CLI",
+    "copied": "¡Copiado!",
+    "loadMore": "Cargar más"
+  },
+  "stats": {
+    "publicRepos": "Repos públicos",
+    "followers": "Seguidores",
+    "following": "Siguiendo",
+    "yearsOnGitHub": "Años en GitHub",
+    "topLanguages": "Lenguajes principales"
+  }
+}

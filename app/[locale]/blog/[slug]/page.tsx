@@ -1,8 +1,5 @@
-"use client";
-
 import { notFound } from "next/navigation";
-import { use } from "react";
-import { useLocale } from "@/i18n/locale-provider";
+import { getLocale } from "next-intl/server";
 import { getPostBySlug } from "@/storage/data/posts";
 import { resolveBlogPost } from "@/storage/schema/blog";
 import { PostView } from "@/components/blog";
@@ -11,14 +8,16 @@ import BaseGrid, {
   MainGridColumn,
   RightGridColumn,
 } from "@/components/ui/base-grid";
+import { Locale } from "@/storage/schema/cv";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = use(params);
-  const { locale } = useLocale();
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const locale = await getLocale();
+  const validLocale = locale as Locale;
 
   const post = getPostBySlug(slug);
 
@@ -26,7 +25,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const resolvedPost = resolveBlogPost(post, locale);
+  const resolvedPost = resolveBlogPost(post, validLocale);
 
   return (
     <BaseGrid>

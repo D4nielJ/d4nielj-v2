@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   StarIcon,
@@ -12,8 +9,7 @@ import {
 } from "@hugeicons/core-free-icons";
 import { GitHubStats } from "@/storage/schema/github";
 import { fetchGitHubStats } from "@/lib/github";
-import { useLocale } from "@/i18n/locale-provider";
-import { uiLabels } from "@/i18n/labels";
+import { getTranslations } from "next-intl/server";
 import { Badge } from "@/components/ui/badge";
 
 function StatItem({
@@ -37,7 +33,7 @@ function StatItem({
   );
 }
 
-function StatsSkeleton() {
+export function StatsSkeleton() {
   return (
     <div className="space-y-4 animate-pulse">
       <div className="flex flex-wrap gap-x-6 gap-y-3">
@@ -58,29 +54,16 @@ function StatsSkeleton() {
   );
 }
 
-export function GitHubStatsDisplay() {
-  const { locale } = useLocale();
-  const labels = uiLabels[locale];
-  const [stats, setStats] = useState<GitHubStats | null>(null);
-  const [loading, setLoading] = useState(true);
+export async function GitHubStatsDisplay() {
+  const t = await getTranslations("stats");
+  const tGithub = await getTranslations("github");
 
-  useEffect(() => {
-    async function loadStats() {
-      try {
-        const data = await fetchGitHubStats();
-        setStats(data);
-      } catch (err) {
-        console.error("Failed to fetch GitHub stats:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadStats();
-  }, []);
-
-  if (loading) {
-    return <StatsSkeleton />;
+  let stats: GitHubStats | null = null;
+  try {
+    stats = await fetchGitHubStats();
+  } catch (err) {
+    console.error("Failed to fetch GitHub stats:", err);
+    return null;
   }
 
   if (!stats) {
@@ -93,27 +76,27 @@ export function GitHubStatsDisplay() {
         <StatItem
           icon={FolderLibraryIcon}
           value={stats.user.public_repos}
-          label={labels.publicRepos}
+          label={t("publicRepos")}
         />
         <StatItem
           icon={StarIcon}
           value={stats.totalStars}
-          label={labels.stars}
+          label={tGithub("stars")}
         />
         <StatItem
           icon={GitForkIcon}
           value={stats.totalForks}
-          label={labels.forks}
+          label={tGithub("forks")}
         />
         <StatItem
           icon={UserMultiple02Icon}
           value={stats.user.followers}
-          label={labels.followers}
+          label={t("followers")}
         />
         <StatItem
           icon={Calendar03Icon}
           value={stats.accountAge + 1}
-          label={labels.yearsOnGitHub}
+          label={t("yearsOnGitHub")}
         />
       </div>
 
@@ -121,7 +104,7 @@ export function GitHubStatsDisplay() {
         <div className="flex flex-wrap items-center gap-2">
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <HugeiconsIcon icon={CodeIcon} className="size-3.5" />
-            <span>{labels.topLanguages}:</span>
+            <span>{t("topLanguages")}:</span>
           </div>
           {stats.topLanguages.map((lang) => (
             <Badge key={lang.name} variant="secondary" className="text-xs">
