@@ -4,8 +4,8 @@ export const cvData: CV = {
   profile: {
     name: "Daniel Jaramillo",
     title: {
-      en: "Software Engineer",
-      es: "Ingeniero de Software",
+      en: "Software Engineer – Full Stack & Automation",
+      es: "Ingeniero de Software – Full Stack y Automatización",
     },
     email: "d4niel.djm@gmail.com",
     phone: "+57 321 698 9816",

@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Daniel J",
-    "cv": "About",
+    "cv": "Acerca de mí",
     "blog": "Blog",
     "projects": "Proyectos",
     "explore": "Explorar mi experiencia"
@@ -40,7 +40,7 @@
     "publicRepos": "Repos públicos",
     "followers": "Seguidores",
     "following": "Siguiendo",
-    "yearsOnGitHub": "Años en GitHub",
+    "yearsOnGitHub": "Años de experiencia",
     "topLanguages": "Lenguajes principales"
   },
   "notFound": {
