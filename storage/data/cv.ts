@@ -169,7 +169,7 @@ export const cvData: CV = {
       },
       visibleFor: ["all"],
       keywords: ["Next.js", "TypeScript", "Tailwind CSS", "React PDF"],
-      github: "https://github.com/d4nielj/interactive-cv",
+      github: "https://github.com/D4nielJ/d4nielj-v2/",
     },
     {
       id: "proj-be4t",

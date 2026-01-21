@@ -13,7 +13,7 @@ import {
   EducationSection,
   ReasoningSection,
   CVToolbar,
-} from "@/components/cv";
+} from "@/components/about";
 import { Separator } from "@/components/ui/separator";
 
 export function CVView() {

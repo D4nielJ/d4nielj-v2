@@ -1,5 +1,5 @@
 import { CVView } from "@/components/cv-view";
-import { CVToolbar } from "@/components/cv/cv-toolbar";
+import { CVToolbar } from "@/components/about/cv-toolbar";
 import BaseGrid, {
   LeftGridColumn,
   MainGridColumn,

@@ -21,7 +21,7 @@ export function Navbar() {
   const navLinks = [
     { href: "/", label: labels.home },
     { href: "/blog", label: labels.blog },
-    { href: "/cv", label: labels.cv },
+    { href: "/about", label: labels.cv },
   ];
 
   return (
