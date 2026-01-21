@@ -13,7 +13,8 @@ This is a Next.js application that serves as a personal brand platform, includin
 ## 🎨 Tech Stack & Conventions
 
 - **Runtime**: Bootstrapped and managed with **Bun**.
-- **Next.js 15+ & React 19**: App Router patterns are strictly followed (Server vs Client components).
+- **Next.js 16+ & React 19**: App Router patterns are strictly followed (Server vs Client components).
+  In nextjs 16 instead of `middleware,ts` you use `proxy.ts`. It acts the same, but with a different name.
 - **Tailwind CSS 4**: Uses the new CSS-first configuration. Use modern Tailwind utility classes.
 - **Components**:
   - `components/ui/`: Primitive, reusable UI components (Radix/shadcn).

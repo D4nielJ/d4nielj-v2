@@ -23,7 +23,9 @@ export function RightGridColumn({ children }: { children?: React.ReactNode }) {
 }
 
 export function MainGridColumn({ children }: { children?: React.ReactNode }) {
-  return <div className="w-full max-w-3xl flex-1 px-4">{children || null}</div>;
+  return (
+    <div className="w-full max-w-3xl flex-1 px-4">{children || null}</div>
+  );
 }
 
 export default BaseGrid;

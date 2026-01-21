@@ -41,5 +41,11 @@
     "following": "Following",
     "yearsOnGitHub": "Years on GitHub",
     "topLanguages": "Top languages"
+  },
+  "notFound": {
+    "prompt": "$ cd",
+    "error": "bash: cd: {path}: No such file or directory",
+    "backHome": "$ cd ~",
+    "hint": "Press any key to return home"
   }
 }

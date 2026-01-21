@@ -41,5 +41,11 @@
     "following": "Siguiendo",
     "yearsOnGitHub": "Años en GitHub",
     "topLanguages": "Lenguajes principales"
+  },
+  "notFound": {
+    "prompt": "$ cd",
+    "error": "bash: cd: {path}: No existe el fichero o el directorio",
+    "backHome": "$ cd ~",
+    "hint": "Presiona cualquier tecla para volver al inicio"
   }
 }
