@@ -59,7 +59,7 @@ export function GitHubProjectCard({ repo }: GitHubProjectCardProps) {
           </div>
         </div>
         {repo.description && (
-          <CardDescription className="mt-1 line-clamp-2">
+          <CardDescription className="mt-1 line-clamp-3">
             {repo.description}
           </CardDescription>
         )}

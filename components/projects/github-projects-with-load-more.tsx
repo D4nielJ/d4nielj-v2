@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useLocale } from "@/i18n/locale-provider";
 import { uiLabels } from "@/i18n/labels";
 
-const INITIAL_COUNT = 10;
+const INITIAL_COUNT = 8;
 const LOAD_MORE_COUNT = 6;
 
 interface GitHubProjectsWithLoadMoreProps {

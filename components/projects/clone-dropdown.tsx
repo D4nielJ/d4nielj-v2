@@ -65,7 +65,7 @@ export function CloneDropdown({
           <DropdownMenuItem
             key={key}
             onClick={() => handleCopy(key, value)}
-            className="flex items-center justify-between gap-2 cursor-pointer"
+            className="flex justify-between items-center gap-2 cursor-pointer"
           >
             <div className="flex flex-col gap-0.5 min-w-0 flex-1">
               <span className="text-xs font-medium">{label}</span>
