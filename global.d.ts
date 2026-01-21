@@ -3,5 +3,14 @@ import en from "./messages/en.json";
 type Messages = typeof en;
 
 declare global {
-  interface IntlMessages extends Messages {}
+  type IntlMessages = Messages;
+
+  interface Window {
+    gtag: (
+      command: "config" | "event" | "js",
+      targetId: string | Date,
+      config?: Record<string, unknown>,
+    ) => void;
+    dataLayer: unknown[];
+  }
 }
