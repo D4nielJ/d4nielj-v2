@@ -3,9 +3,14 @@
 import { notFound } from "next/navigation";
 import { use } from "react";
 import { useLocale } from "@/i18n/locale-provider";
-import { getPostBySlug } from "@/cv/data/posts";
-import { resolveBlogPost } from "@/cv/schema/blog";
+import { getPostBySlug } from "@/storage/data/posts";
+import { resolveBlogPost } from "@/storage/schema/blog";
 import { PostView } from "@/components/blog";
+import BaseGrid, {
+  LeftGridColumn,
+  MainGridColumn,
+  RightGridColumn,
+} from "@/components/ui/base-grid";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -23,5 +28,13 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   const resolvedPost = resolveBlogPost(post, locale);
 
-  return <PostView post={resolvedPost} />;
+  return (
+    <BaseGrid>
+      <LeftGridColumn />
+      <MainGridColumn>
+        <PostView post={resolvedPost} />
+      </MainGridColumn>
+      <RightGridColumn />
+    </BaseGrid>
+  );
 }

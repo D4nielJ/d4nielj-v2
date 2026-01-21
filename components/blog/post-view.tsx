@@ -1,6 +1,6 @@
 "use client";
 
-import { ResolvedBlogPost } from "@/cv/schema/blog";
+import { ResolvedBlogPost } from "@/storage/schema/blog";
 import { Figure } from "./figure";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -26,13 +26,13 @@ export function PostView({ post }: PostViewProps) {
   };
 
   return (
-    <article className="container mx-auto px-4 py-8 max-w-3xl">
+    <article className="mx-auto w-full py-8">
       {/* Header */}
-      <header className="space-y-4 mb-8">
+      <header className="mb-8 space-y-4">
         <h1 className="text-2xl font-bold tracking-tight leading-tight">
           {post.title}
         </h1>
-        <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+        <div className="text-muted-foreground flex flex-wrap items-center gap-3 text-sm">
           <time dateTime={post.publishedAt}>
             {formatDate(post.publishedAt)}
           </time>
@@ -48,7 +48,7 @@ export function PostView({ post }: PostViewProps) {
       </header>
 
       {/* Abstract */}
-      <p className="text-muted-foreground italic border-l-2 pl-4 mb-8">
+      <p className="text-muted-foreground pl-4 mb-8 italic border-l-2">
         {post.abstract}
       </p>
 
@@ -69,7 +69,7 @@ export function PostView({ post }: PostViewProps) {
                 return (
                   <h2
                     key={idx}
-                    className="text-lg font-semibold mt-8 mb-4 tracking-tight"
+                    className="mt-8 mb-4 text-lg font-semibold tracking-tight"
                   >
                     {section.content}
                   </h2>
@@ -78,7 +78,7 @@ export function PostView({ post }: PostViewProps) {
               return (
                 <h3
                   key={idx}
-                  className="text-base font-semibold mt-6 mb-3 tracking-tight"
+                  className="mt-6 mb-3 text-base font-semibold tracking-tight"
                 >
                   {section.content}
                 </h3>
@@ -92,7 +92,7 @@ export function PostView({ post }: PostViewProps) {
               return <Figure key={idx} figure={figure} number={figureNumber} />;
             case "list":
               return (
-                <ul key={idx} className="list-disc list-inside space-y-2 pl-4">
+                <ul key={idx} className="pl-4 space-y-2 list-inside list-disc">
                   {section.items?.map((item, i) => (
                     <li key={i} className="leading-relaxed">
                       {item}

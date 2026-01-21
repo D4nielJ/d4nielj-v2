@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useLocale } from "@/i18n/locale-provider";
 import { uiLabels } from "@/i18n/labels";
-import { ResolvedBlogFigure } from "@/cv/schema/blog";
+import { ResolvedBlogFigure } from "@/storage/schema/blog";
 
 interface FigureProps {
   figure: ResolvedBlogFigure;

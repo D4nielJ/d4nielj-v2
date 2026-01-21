@@ -4,9 +4,9 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { Mail01Icon, Github01Icon } from "@hugeicons/core-free-icons";
 import { useLocale } from "@/i18n/locale-provider";
 import { uiLabels } from "@/i18n/labels";
-import { cvData } from "@/cv/data/cv";
+import { cvData } from "@/storage/data/cv";
 
-const REPO_URL = "https://github.com/d4nielj/interactive-cv";
+const REPO_URL = "https://github.com/D4nielJ/d4nielj-v2";
 
 export function Footer() {
   const { locale } = useLocale();
@@ -18,7 +18,7 @@ export function Footer() {
 
   return (
     <footer className="border-t print:hidden">
-      <div className="container mx-auto px-4 py-4 max-w-3xl flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-muted-foreground">
+      <div className="text-muted-foreground container mx-auto max-w-3xl flex flex-col justify-between items-center gap-3 px-4 py-4 text-sm sm:flex-row">
         <p>
           © {new Date().getFullYear()} {cvData.profile.name}
         </p>
@@ -26,7 +26,7 @@ export function Footer() {
         <div className="flex items-center gap-4">
           <a
             href={`mailto:${cvData.profile.email}`}
-            className="hover:text-foreground transition-colors"
+            className="transition-colors hover:text-foreground"
             aria-label="Email"
           >
             <HugeiconsIcon icon={Mail01Icon} className="size-4" />
@@ -37,7 +37,7 @@ export function Footer() {
               href={githubLink.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors"
+              className="transition-colors hover:text-foreground"
               aria-label="GitHub"
             >
               <HugeiconsIcon icon={Github01Icon} className="size-4" />
@@ -48,7 +48,7 @@ export function Footer() {
             href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
+            className="transition-colors hover:text-foreground"
           >
             {labels.viewSourceCode}
           </a>

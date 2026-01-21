@@ -1,6 +1,6 @@
 "use client";
 
-import { cvData } from "@/cv/data/cv";
+import { cvData } from "@/storage/data/cv";
 import { getCVByRole } from "@/lib/getCVByRole";
 import { useLocale } from "@/i18n/locale-provider";
 import { useRole } from "@/context/role-context";
@@ -24,11 +24,8 @@ export function CVView() {
   const labels = uiLabels[locale];
 
   return (
-    <div className="animate-in fade-in container mx-auto px-4 py-8 duration-500 lg:max-w-7xl lg:flex lg:justify-center lg:gap-10">
-      <aside className="h-fit lg:w-52 lg:sticky lg:top-24 lg:shrink-0">
-        <CVToolbar />
-      </aside>
-      <main className="w-full max-w-3xl flex-1 space-y-8">
+    <div className="animate-in fade-in py-8 duration-500 lg:flex lg:justify-center lg:gap-10">
+      <main className="w-full space-y-8">
         <ProfileSection profile={cv.profile} />
         <Separator />
         <ExperienceSection
@@ -40,7 +37,6 @@ export function CVView() {
         <EducationSection education={cv.education} title={labels.education} />
         <ReasoningSection reasoning={cv.reasoning} title={labels.reasoning} />
       </main>
-      <div className="hidden lg:w-52 lg:block lg:shrink-0" aria-hidden="true" />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, ReactNode } from "react";
-import { VisibilityRole } from "@/cv/schema/cv";
+import { VisibilityRole } from "@/storage/schema/cv";
 
 type SelectableRole = Exclude<VisibilityRole, "all">;
 

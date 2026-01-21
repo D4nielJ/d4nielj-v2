@@ -7,7 +7,7 @@ import {
   useCallback,
   ReactNode,
 } from "react";
-import { Locale } from "@/cv/schema/cv";
+import { Locale } from "@/storage/schema/cv";
 
 interface LocaleContextValue {
   locale: Locale;

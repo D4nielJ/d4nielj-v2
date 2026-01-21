@@ -10,7 +10,7 @@ import {
   SkillSet,
   Education,
   ReasoningCase,
-} from "@/cv/schema/cv";
+} from "@/storage/schema/cv";
 
 // Resolved types (localized strings become plain strings)
 export interface ResolvedProfile {

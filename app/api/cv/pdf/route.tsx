@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { renderToBuffer } from "@react-pdf/renderer";
-import { cvData } from "@/cv/data/cv";
+import { cvData } from "@/storage/data/cv";
 import { getCVByRole } from "@/lib/getCVByRole";
 import { CVPdfDocument } from "@/lib/cv-pdf-document";
 import { uiLabels } from "@/i18n/labels";
-import { Locale } from "@/cv/schema/cv";
-import { VisibilityRole } from "@/cv/schema/cv";
+import { Locale } from "@/storage/schema/cv";
+import { VisibilityRole } from "@/storage/schema/cv";
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;

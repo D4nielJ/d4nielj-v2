@@ -1,4 +1,4 @@
-import { Locale } from "@/cv/schema/cv";
+import { Locale } from "@/storage/schema/cv";
 
 export const uiLabels: Record<Locale, Record<string, string>> = {
   en: {
