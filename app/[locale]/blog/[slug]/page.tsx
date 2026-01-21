@@ -17,6 +17,7 @@ interface BlogPostPageProps {
 }
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://d4nielj.me";
+const authorName = cvData.profile.name;
 
 export async function generateMetadata({
   params,
@@ -32,7 +33,6 @@ export async function generateMetadata({
 
   const validLocale = locale as Locale;
   const resolvedPost = resolveBlogPost(post, validLocale);
-  const authorName = cvData.profile.name;
 
   return {
     title: resolvedPost.title,
@@ -85,7 +85,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   const resolvedPost = resolveBlogPost(post, validLocale);
-  const authorName = cvData.profile.name;
 
   // BlogPosting JSON-LD structured data
   const jsonLd = {
