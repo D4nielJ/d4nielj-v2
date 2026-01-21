@@ -31,12 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html className={jetbrainsMono.variable} suppressHydrationWarning>
+      <head>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
     </html>
   );
 }
