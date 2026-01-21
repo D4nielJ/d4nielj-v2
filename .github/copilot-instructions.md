@@ -1,6 +1,6 @@
 # Instructions for working on Daniel's Personal Website & Interactive CV
 
-This is a Next.js application that serves as a personal brand platform, including a blog, projects showcase, and a role-specific "About" section that functions as an interactive CV with PDF export.
+This is a Next.js application that serves as a personal brand platform, including a blog, projects showcase, and a role-specific "About" section that functions as an interactive CV with PDF export.GitHub CLI
 
 ## 🏗 Architecture & Data Flow
 

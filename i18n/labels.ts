@@ -22,6 +22,16 @@ export const uiLabels: Record<Locale, Record<string, string>> = {
     recentPosts: "Recent Posts",
     // Footer
     viewSourceCode: "View source code",
+    // GitHub Projects
+    githubProjects: "GitHub Projects",
+    stars: "stars",
+    forks: "forks",
+    clone: "Clone",
+    cloneHttps: "HTTPS",
+    cloneSsh: "SSH",
+    cloneCli: "GitHub CLI",
+    copied: "Copied!",
+    loadMore: "Load more",
   },
   es: {
     // Navigation
@@ -44,5 +54,15 @@ export const uiLabels: Record<Locale, Record<string, string>> = {
     recentPosts: "Publicaciones Recientes",
     // Footer
     viewSourceCode: "Ver código fuente",
+    // GitHub Projects
+    githubProjects: "Proyectos en GitHub",
+    stars: "estrellas",
+    forks: "forks",
+    clone: "Clonar",
+    cloneHttps: "HTTPS",
+    cloneSsh: "SSH",
+    cloneCli: "GitHub CLI",
+    copied: "¡Copiado!",
+    loadMore: "Cargar más",
   },
 };
