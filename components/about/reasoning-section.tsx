@@ -19,20 +19,25 @@ export function ReasoningSection({ reasoning, title }: ReasoningSectionProps) {
 
   return (
     <section className="space-y-4">
-      <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
-      <div className="space-y-4">
-        {reasoning.map((item) => (
-          <Card key={item.id} size="sm">
-            <CardHeader>
-              <CardTitle>{item.title}</CardTitle>
-              <CardDescription>{item.scenario}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm">{item.approach}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      {reasoning.map((item) => (
+        <div key={item.id}>
+          <h2 className="text-lg font-semibold tracking-tight mb-2">
+            {item.title}
+          </h2>
+          <div className="space-y-4">
+            <Card size="sm">
+              <CardHeader>
+                <CardTitle className="text-muted-foreground">
+                  {item.scenario}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm">{item.approach}</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      ))}
     </section>
   );
 }
