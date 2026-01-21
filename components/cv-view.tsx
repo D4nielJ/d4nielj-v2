@@ -2,7 +2,7 @@
 
 import { cvData } from "@/storage/data/cv";
 import { getCVByRole } from "@/lib/getCVByRole";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useRole } from "@/context/role-context";
 import {
   ProfileSection,
@@ -11,20 +11,17 @@ import {
   SkillsSection,
   EducationSection,
   ReasoningSection,
-  CVToolbar,
 } from "@/components/about";
 import { Separator } from "@/components/ui/separator";
 import { Locale } from "@/storage/schema/cv";
 
-export function CVView() {
-  const locale = useLocale() as Locale;
+export function CVView({ locale }: { locale: Locale }) {
   const { role } = useRole();
   const t = useTranslations("cv");
-
   const cv = getCVByRole(cvData, locale, role);
 
   return (
-    <div className="animate-in fade-in py-8 duration-500 lg:flex lg:justify-center lg:gap-10">
+    <div className="py-8 lg:flex lg:justify-center lg:gap-10">
       <main className="w-full space-y-8">
         <ProfileSection profile={cv.profile} />
         <Separator />

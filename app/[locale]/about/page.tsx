@@ -5,15 +5,20 @@ import BaseGrid, {
   MainGridColumn,
   RightGridColumn,
 } from "@/components/ui/base-grid";
+import { getLocale } from "next-intl/server";
+import { Locale } from "@/storage/schema/cv";
 
-export default function CVPage() {
+export default async function CVPage() {
+  const locale = await getLocale();
+  const validLocale = locale as Locale;
+
   return (
     <BaseGrid>
       <LeftGridColumn>
         <CVToolbar />
       </LeftGridColumn>
       <MainGridColumn>
-        <CVView />
+        <CVView locale={validLocale} />
       </MainGridColumn>
       <RightGridColumn />
     </BaseGrid>
