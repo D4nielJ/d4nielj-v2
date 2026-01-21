@@ -4,12 +4,12 @@ export const postsData: BlogPost[] = [
   {
     slug: "ai-reshapes-development-2026",
     title: {
-      en: "How AI Impacts and Reshapes the Future of Development in 2026",
-      es: "Cómo la IA Impacta y Transforma el Futuro del Desarrollo en 2026",
+      en: "How AI Impacts and Reshapes the Future of Development in 2026 (AI written)",
+      es: "Cómo la IA Impacta y Transforma el Futuro del Desarrollo en 2026 (Escrito por IA)",
     },
     abstract: {
-      en: "An exploration of the transformative role of AI in software development, examining how coding assistants, automated testing, and intelligent tooling are redefining what it means to be a developer in 2026.",
-      es: "Una exploración del papel transformador de la IA en el desarrollo de software, examinando cómo los asistentes de código, las pruebas automatizadas y las herramientas inteligentes están redefiniendo lo que significa ser desarrollador en 2026.",
+      en: "This entry is an exploration of how AI is capable of reshaping the software development landscape in 2026, by using the same AI tools available today to generate content. This is intended to showcase the capabilities of AI in content creation. Model used: claude-opus 4.5",
+      es: "Esta entrada es una exploración de cómo la IA es capaz de transformar el panorama del desarrollo de software en 2026, utilizando las mismas herramientas de IA disponibles hoy para generar contenido. Esto tiene la intención de mostrar las capacidades de la IA en la creación de contenido. Modelo utilizado: claude-opus 4.5",
     },
     publishedAt: "2026-01-15",
     tags: ["AI", "Software Development", "Future of Work"],

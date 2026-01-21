@@ -37,9 +37,9 @@ export default async function LocaleLayout({ children, params }: Props) {
         <RoleProvider>
           <div className="bg-background min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-1">
+            <div className="flex-1">
               <Suspense fallback={<Loading />}>{children}</Suspense>
-            </main>
+            </div>
             <Footer />
           </div>
         </RoleProvider>

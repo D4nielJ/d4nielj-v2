@@ -1,10 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GitHubRepo } from "@/storage/schema/github";
 import { GitHubProjectCard } from "./github-project-card";
-import { GitHubProjectsSkeleton } from "./github-projects-skeleton";
-import { fetchAllGitHubRepos } from "@/lib/github";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 
@@ -13,51 +11,30 @@ const LOAD_MORE_COUNT = 6;
 
 interface GitHubProjectsWithLoadMoreProps {
   title: string;
+  allRepos?: GitHubRepo[];
 }
 
 export function GitHubProjectsWithLoadMore({
   title,
+  allRepos,
 }: GitHubProjectsWithLoadMoreProps) {
   const t = useTranslations("github");
-  const [allRepos, setAllRepos] = useState<GitHubRepo[]>([]);
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    async function loadRepos() {
-      try {
-        const data = await fetchAllGitHubRepos();
-        setAllRepos(data);
-      } catch (err) {
-        console.error("Failed to fetch GitHub repos:", err);
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadRepos();
-  }, []);
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + LOAD_MORE_COUNT);
   };
 
-  if (loading) {
-    return <GitHubProjectsSkeleton />;
-  }
-
-  if (error || allRepos.length === 0) {
+  if (allRepos?.length === 0) {
     return null;
   }
 
-  const visibleRepos = allRepos.slice(0, visibleCount);
-  const hasMore = visibleCount < allRepos.length;
+  const visibleRepos = allRepos?.slice(0, visibleCount) ?? [];
+  const hasMore = visibleCount < (allRepos?.length ?? 0);
 
   return (
-    <section className="space-y-6">
-      <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
+    <section className="space-y-8">
+      <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         {visibleRepos.map((repo) => (
           <GitHubProjectCard key={repo.id} repo={repo} />

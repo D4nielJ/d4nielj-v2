@@ -37,22 +37,10 @@ export default async function HomePage() {
             <p className="leading-relaxed">{profile.summary}</p>
             <div className="flex gap-4 pt-2">
               <Link
-                href="/projects"
-                className="text-primary text-sm underline-offset-4 hover:underline"
-              >
-                {t("projects")} →
-              </Link>
-              <Link
-                href="/blog"
-                className="text-primary text-sm underline-offset-4 hover:underline"
-              >
-                {t("blog")} →
-              </Link>
-              <Link
                 href="/about"
                 className="text-primary text-sm underline-offset-4 hover:underline"
               >
-                {t("cv")} →
+                {t("explore")} →
               </Link>
             </div>
           </section>
