@@ -1,6 +1,6 @@
 export function BaseGrid({ children }: { children: React.ReactNode }) {
   return (
-    <div className="container mx-auto lg:max-w-7xl lg:flex lg:justify-center lg:gap-10">
+    <div className="animate-in fade-in container mx-auto duration-500 lg:max-w-7xl lg:flex lg:justify-center lg:gap-10">
       {children}
     </div>
   );
@@ -23,7 +23,9 @@ export function RightGridColumn({ children }: { children?: React.ReactNode }) {
 }
 
 export function MainGridColumn({ children }: { children?: React.ReactNode }) {
-  return <div className="w-full max-w-3xl flex-1 px-4">{children || null}</div>;
+  return (
+    <div className="w-full max-w-3xl flex-1 px-4">{children || null}</div>
+  );
 }
 
 export default BaseGrid;

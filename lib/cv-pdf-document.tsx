@@ -120,9 +120,13 @@ const styles = StyleSheet.create({
   },
 });
 
+import enMessages from "@/messages/en.json";
+
+type Messages = typeof enMessages;
+
 interface CVPdfDocumentProps {
   cv: ResolvedCV;
-  labels: Record<string, string>;
+  messages: Messages;
 }
 
 function formatDateRange(startDate: string, endDate?: string): string {
@@ -141,7 +145,9 @@ function formatDateRange(startDate: string, endDate?: string): string {
   }`;
 }
 
-export function CVPdfDocument({ cv, labels }: CVPdfDocumentProps) {
+export function CVPdfDocument({ cv, messages }: CVPdfDocumentProps) {
+  const cvLabels = messages.cv;
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -170,7 +176,7 @@ export function CVPdfDocument({ cv, labels }: CVPdfDocumentProps) {
         {/* Experience */}
         {cv.experience.length > 0 && (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>{labels.experience}</Text>
+            <Text style={styles.sectionTitle}>{cvLabels.experience}</Text>
             {cv.experience.map((exp) => (
               <View key={exp.id} style={styles.card}>
                 <Text style={styles.cardTitle}>{exp.role}</Text>
@@ -202,7 +208,7 @@ export function CVPdfDocument({ cv, labels }: CVPdfDocumentProps) {
         {/* Projects */}
         {cv.projects.length > 0 && (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>{labels.projects}</Text>
+            <Text style={styles.sectionTitle}>{cvLabels.projects}</Text>
             <View style={styles.projectGrid}>
               {cv.projects.map((proj) => (
                 <View key={proj.id} style={styles.projectCard}>
@@ -224,7 +230,7 @@ export function CVPdfDocument({ cv, labels }: CVPdfDocumentProps) {
         {/* Skills */}
         {cv.skills.length > 0 && (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>{labels.skills}</Text>
+            <Text style={styles.sectionTitle}>{cvLabels.skills}</Text>
             {cv.skills.map((skillSet) => (
               <View key={skillSet.id} style={styles.skillCategory}>
                 <Text style={styles.skillCategoryTitle}>
@@ -245,7 +251,7 @@ export function CVPdfDocument({ cv, labels }: CVPdfDocumentProps) {
         {/* Education */}
         {cv.education.length > 0 && (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>{labels.education}</Text>
+            <Text style={styles.sectionTitle}>{cvLabels.education}</Text>
             {cv.education.map((edu) => (
               <View key={edu.id} style={styles.card}>
                 <Text style={styles.cardTitle}>{edu.degree}</Text>
@@ -261,7 +267,7 @@ export function CVPdfDocument({ cv, labels }: CVPdfDocumentProps) {
         {/* Reasoning */}
         {cv.reasoning.length > 0 && (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>{labels.reasoning}</Text>
+            <Text style={styles.sectionTitle}>{cvLabels.reasoning}</Text>
             {cv.reasoning.map((item) => (
               <View key={item.id} style={styles.card}>
                 <Text style={styles.cardTitle}>{item.title}</Text>

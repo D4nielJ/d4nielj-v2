@@ -1,41 +1,23 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { GitHubRepo } from "@/storage/schema/github";
 import { GitHubProjectCard } from "./github-project-card";
-import { GitHubProjectsSkeleton } from "./github-projects-skeleton";
 import { fetchGitHubRepos } from "@/lib/github";
 
 interface GitHubProjectsClientProps {
   title: string;
 }
 
-export function GitHubProjectsClient({ title }: GitHubProjectsClientProps) {
-  const [repos, setRepos] = useState<GitHubRepo[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    async function loadRepos() {
-      try {
-        const data = await fetchGitHubRepos({ count: 6 });
-        setRepos(data);
-      } catch (err) {
-        console.error("Failed to fetch GitHub repos:", err);
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadRepos();
-  }, []);
-
-  if (loading) {
-    return <GitHubProjectsSkeleton />;
+export async function GitHubProjectsClient({
+  title,
+}: GitHubProjectsClientProps) {
+  let repos: GitHubRepo[] = [];
+  try {
+    repos = await fetchGitHubRepos({ count: 6 });
+  } catch (err) {
+    console.error("Failed to fetch GitHub repos:", err);
+    return null;
   }
 
-  if (error || repos.length === 0) {
+  if (repos.length === 0) {
     return null;
   }
 

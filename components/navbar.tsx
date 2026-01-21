@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useLocale } from "@/i18n/locale-provider";
-import { uiLabels } from "@/i18n/labels";
+import { useTranslations } from "next-intl";
 import { SettingsMenu } from "@/components/settings-menu";
 import { cn } from "@/lib/utils";
 import {
@@ -15,14 +14,13 @@ import {
 
 export function Navbar() {
   const pathname = usePathname();
-  const { locale } = useLocale();
-  const labels = uiLabels[locale];
+  const t = useTranslations("nav");
 
   const navLinks = [
-    { href: "/", label: labels.home },
-    { href: "/projects", label: labels.projects },
-    { href: "/blog", label: labels.blog },
-    { href: "/about", label: labels.cv },
+    { href: "/", label: t("home") },
+    { href: "/projects", label: t("projects") },
+    { href: "/blog", label: t("blog") },
+    { href: "/about", label: t("cv") },
   ];
 
   return (
@@ -31,7 +29,7 @@ export function Navbar() {
         <LeftGridColumn />
         <MainGridColumn>
           <nav className="mx-auto w-full flex justify-between items-center py-2">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

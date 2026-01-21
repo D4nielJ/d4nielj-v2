@@ -4,6 +4,7 @@ const GITHUB_USERNAME = "d4nielj";
 const GITHUB_API_BASE = "https://api.github.com";
 const GITHUB_REPOS_URL = `${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/repos`;
 const GITHUB_USER_URL = `${GITHUB_API_BASE}/users/${GITHUB_USERNAME}`;
+const REVALIDATE_TIME = 600; // 10 minutes
 
 export interface FetchGitHubReposOptions {
   /** Number of repos to return (default: 6) */
@@ -19,7 +20,7 @@ export interface FetchGitHubReposOptions {
 export async function fetchGitHubRepos(
   options: FetchGitHubReposOptions = {},
 ): Promise<GitHubRepo[]> {
-  const { count = 6, revalidate = 3600 } = options;
+  const { count = 6, revalidate = REVALIDATE_TIME } = options;
 
   const headers: HeadersInit = {
     Accept: "application/vnd.github.v3+json",
@@ -75,6 +76,7 @@ export async function fetchAllGitHubRepos(): Promise<GitHubRepo[]> {
 
   const res = await fetch(`${GITHUB_REPOS_URL}?per_page=100&sort=updated`, {
     headers,
+    next: { revalidate: REVALIDATE_TIME },
   });
 
   if (!res.ok) {
@@ -101,7 +103,10 @@ export async function fetchGitHubUser(): Promise<GitHubUser | null> {
     headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   }
 
-  const res = await fetch(GITHUB_USER_URL, { headers });
+  const res = await fetch(GITHUB_USER_URL, {
+    headers,
+    next: { revalidate: REVALIDATE_TIME },
+  });
 
   if (!res.ok) {
     console.error("Failed to fetch GitHub user:", res.statusText);

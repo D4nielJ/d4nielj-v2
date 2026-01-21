@@ -152,3 +152,35 @@
     text-decoration: none !important;
   }
 }
+
+/* Loading animations */
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dot-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+.loading-cursor {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+.loading-dot {
+  animation: dot-pulse 1.2s ease-in-out infinite;
+}

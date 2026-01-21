@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "home": "Daniel J",
+    "cv": "About",
+    "blog": "Blog",
+    "projects": "Projects",
+    "explore": "Explore my experience"
+  },
+  "cv": {
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "education": "Education",
+    "reasoning": "Why Me?",
+    "downloadPdf": "Download PDF",
+    "viewAs": "View as:",
+    "language": "Language:",
+    "theme": "Theme:"
+  },
+  "blog": {
+    "figure": "Fig.",
+    "readMore": "Read more",
+    "recentPosts": "Recent Posts"
+  },
+  "footer": {
+    "viewSourceCode": "View source code"
+  },
+  "github": {
+    "projects": "GitHub Projects",
+    "stars": "stars",
+    "forks": "forks",
+    "clone": "Clone",
+    "cloneHttps": "HTTPS",
+    "cloneSsh": "SSH",
+    "cloneCli": "GitHub CLI",
+    "copied": "Copied!",
+    "loadMore": "Load more"
+  },
+  "stats": {
+    "publicRepos": "Public repos",
+    "followers": "Followers",
+    "following": "Following",
+    "yearsOnGitHub": "Years of experience",
+    "topLanguages": "Top languages"
+  },
+  "notFound": {
+    "prompt": "$ cd",
+    "error": "bash: cd: {path}: No such file or directory",
+    "backHome": "$ cd ~",
+    "hint": "Press any key to return home"
+  }
+}

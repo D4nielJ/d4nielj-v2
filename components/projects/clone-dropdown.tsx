@@ -15,8 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { useLocale } from "@/i18n/locale-provider";
-import { uiLabels } from "@/i18n/labels";
+import { useTranslations } from "next-intl";
 
 interface CloneDropdownProps {
   cloneUrl: string;
@@ -31,14 +30,13 @@ export function CloneDropdown({
   sshUrl,
   fullName,
 }: CloneDropdownProps) {
-  const { locale } = useLocale();
-  const labels = uiLabels[locale];
+  const t = useTranslations("github");
   const [copied, setCopied] = useState<CloneOption | null>(null);
 
   const cloneOptions: { key: CloneOption; label: string; value: string }[] = [
-    { key: "https", label: labels.cloneHttps, value: cloneUrl },
-    { key: "ssh", label: labels.cloneSsh, value: sshUrl },
-    { key: "cli", label: labels.cloneCli, value: `gh repo clone ${fullName}` },
+    { key: "https", label: t("cloneHttps"), value: cloneUrl },
+    { key: "ssh", label: t("cloneSsh"), value: sshUrl },
+    { key: "cli", label: t("cloneCli"), value: `gh repo clone ${fullName}` },
   ];
 
   const handleCopy = async (option: CloneOption, value: string) => {
@@ -56,7 +54,7 @@ export function CloneDropdown({
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="xs" className="gap-1.5 cursor-pointer">
           <HugeiconsIcon icon={SourceCodeIcon} className="size-3.5" />
-          {labels.clone}
+          {t("clone")}
           <HugeiconsIcon icon={ArrowDown01Icon} className="size-3" />
         </Button>
       </DropdownMenuTrigger>

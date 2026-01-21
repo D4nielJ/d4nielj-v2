@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { useLocale } from "@/i18n/locale-provider";
-import { uiLabels } from "@/i18n/labels";
+import { getLocale, getTranslations } from "next-intl/server";
 import { cvData } from "@/storage/data/cv";
 import { getCVByRole } from "@/lib/getCVByRole";
 import BaseGrid, {
@@ -12,13 +9,17 @@ import BaseGrid, {
 } from "@/components/ui/base-grid";
 import { GitHubStatsDisplay } from "@/components/home";
 import { Separator } from "@/components/ui/separator";
+import { Locale } from "@/storage/schema/cv";
+import { StatsSkeleton } from "@/components/home/github-stats";
+import { Suspense } from "react";
 
-export default function HomePage() {
-  const { locale } = useLocale();
-  const labels = uiLabels[locale];
+export default async function HomePage() {
+  const locale = await getLocale();
+  const validLocale = locale as Locale;
+  const t = await getTranslations("nav");
 
   // Resolve profile for general intro
-  const profile = getCVByRole(cvData, locale, "fullstack").profile;
+  const profile = getCVByRole(cvData, validLocale, "fullstack").profile;
 
   return (
     <BaseGrid>
@@ -36,22 +37,10 @@ export default function HomePage() {
             <p className="leading-relaxed">{profile.summary}</p>
             <div className="flex gap-4 pt-2">
               <Link
-                href="/projects"
-                className="text-primary text-sm underline-offset-4 hover:underline"
-              >
-                {labels.projects} →
-              </Link>
-              <Link
-                href="/blog"
-                className="text-primary text-sm underline-offset-4 hover:underline"
-              >
-                {labels.blog} →
-              </Link>
-              <Link
                 href="/about"
                 className="text-primary text-sm underline-offset-4 hover:underline"
               >
-                {labels.cv} →
+                {t("explore")} →
               </Link>
             </div>
           </section>
@@ -60,7 +49,9 @@ export default function HomePage() {
 
           {/* GitHub Stats */}
           <section>
-            <GitHubStatsDisplay />
+            <Suspense fallback={<StatsSkeleton />}>
+              <GitHubStatsDisplay />
+            </Suspense>
           </section>
         </main>
       </MainGridColumn>

@@ -4,22 +4,22 @@ export const postsData: BlogPost[] = [
   {
     slug: "ai-reshapes-development-2026",
     title: {
-      en: "How AI Impacts and Reshapes the Future of Development in 2026",
-      es: "Cómo la IA Impacta y Transforma el Futuro del Desarrollo en 2026",
+      en: "How AI Impacts and Reshapes the Future of Development in 2026 (AI written)",
+      es: "Cómo la IA Impacta y Transforma el Futuro del Desarrollo en 2026 (Escrito por IA)",
     },
     abstract: {
-      en: "An exploration of the transformative role of AI in software development, examining how coding assistants, automated testing, and intelligent tooling are redefining what it means to be a developer in 2026.",
-      es: "Una exploración del papel transformador de la IA en el desarrollo de software, examinando cómo los asistentes de código, las pruebas automatizadas y las herramientas inteligentes están redefiniendo lo que significa ser desarrollador en 2026.",
+      en: "This entry is an exploration of how AI is capable of reshaping the software development landscape in 2026, by using the same AI tools available today to generate content. This is intended to showcase the capabilities of AI in content creation. Model used: claude-opus 4.5",
+      es: "Esta entrada es una exploración de cómo la IA es capaz de transformar el panorama del desarrollo de software en 2026, utilizando las mismas herramientas de IA disponibles hoy para generar contenido. Esto tiene la intención de mostrar las capacidades de la IA en la creación de contenido. Modelo utilizado: claude-opus 4.5",
     },
     publishedAt: "2026-01-15",
     tags: ["AI", "Software Development", "Future of Work"],
     figures: [
       {
         id: "fig-1",
-        src: "/images/blog/ai-coding-assistant.png",
+        src: "/images/blog/post-1/developer.png",
         alt: {
-          en: "A developer working alongside an AI coding assistant",
-          es: "Un desarrollador trabajando junto a un asistente de código IA",
+          en: "A charismatic developer laughs while working at the office",
+          es: "Un desarrollador carismático ríe mientras trabaja en la oficina",
         },
         caption: {
           en: "The modern development workflow increasingly involves AI pair programming, where the assistant suggests implementations while the developer focuses on architecture and review.",
@@ -28,14 +28,14 @@ export const postsData: BlogPost[] = [
       },
       {
         id: "fig-2",
-        src: "/images/blog/ai-productivity-chart.png",
+        src: "/images/blog/post-1/graph.png",
         alt: {
           en: "Chart showing developer productivity trends with AI adoption",
           es: "Gráfico mostrando tendencias de productividad de desarrolladores con adopción de IA",
         },
         caption: {
-          en: "Studies from 2025 indicate a 40-60% increase in code output when developers leverage AI assistants, though the quality metrics show more nuanced results depending on task complexity.",
-          es: "Estudios de 2025 indican un aumento del 40-60% en la producción de código cuando los desarrolladores aprovechan asistentes de IA, aunque las métricas de calidad muestran resultados más matizados dependiendo de la complejidad de la tarea.",
+          en: "Code Volume Growth Analysis: AI-generated code progression from 3,000 lines (March 2025) to 2.26M lines (August 2025). Around 40% AI generated code shipped in production in August 2025 and 28% increase in production code volume.",
+          es: "Análisis de Crecimiento del Volumen de Código: Progresión del código generado por IA desde 3,000 líneas (marzo 2025) hasta 2.26M líneas (agosto 2025). Alrededor del 40% del código generado por IA se implementó en producción en agosto de 2025 y un aumento del 28% en el volumen de código en producción.",
         },
       },
     ],

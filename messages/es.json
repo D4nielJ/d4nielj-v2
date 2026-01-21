@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "home": "Daniel J",
+    "cv": "Acerca de mí",
+    "blog": "Blog",
+    "projects": "Proyectos",
+    "explore": "Explorar mi experiencia"
+  },
+  "cv": {
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "education": "Educación",
+    "reasoning": "¿Por qué yo?",
+    "downloadPdf": "Descargar PDF",
+    "viewAs": "Ver como:",
+    "language": "Idioma:",
+    "theme": "Tema:"
+  },
+  "blog": {
+    "figure": "Fig.",
+    "readMore": "Leer más",
+    "recentPosts": "Publicaciones Recientes"
+  },
+  "footer": {
+    "viewSourceCode": "Ver código fuente"
+  },
+  "github": {
+    "projects": "Proyectos en GitHub",
+    "stars": "estrellas",
+    "forks": "forks",
+    "clone": "Clonar",
+    "cloneHttps": "HTTPS",
+    "cloneSsh": "SSH",
+    "cloneCli": "GitHub CLI",
+    "copied": "¡Copiado!",
+    "loadMore": "Cargar más"
+  },
+  "stats": {
+    "publicRepos": "Repos públicos",
+    "followers": "Seguidores",
+    "following": "Siguiendo",
+    "yearsOnGitHub": "Años de experiencia",
+    "topLanguages": "Lenguajes principales"
+  },
+  "notFound": {
+    "prompt": "$ cd",
+    "error": "bash: cd: {path}: No existe el fichero o el directorio",
+    "backHome": "$ cd ~",
+    "hint": "Presiona cualquier tecla para volver al inicio"
+  }
+}

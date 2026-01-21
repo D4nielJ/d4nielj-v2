@@ -6,7 +6,7 @@ import {
   SelectableRole,
 } from "@/context/role-context";
 import { Button } from "@/components/ui/button";
-import { useLocale, Locale } from "@/i18n/locale-provider";
+import { useLocale } from "next-intl";
 import {
   Select,
   SelectContent,
@@ -14,6 +14,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
+type Locale = "en" | "es";
 
 const roleLabels: Record<Locale, Record<SelectableRole, string>> = {
   en: {
@@ -32,7 +34,7 @@ const roleLabels: Record<Locale, Record<SelectableRole, string>> = {
 
 export function RoleSwitcher() {
   const { role, setRole } = useRole();
-  const { locale } = useLocale();
+  const locale = useLocale() as Locale;
 
   return (
     <>

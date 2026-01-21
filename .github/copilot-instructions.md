@@ -13,7 +13,8 @@ This is a Next.js application that serves as a personal brand platform, includin
 ## 🎨 Tech Stack & Conventions
 
 - **Runtime**: Bootstrapped and managed with **Bun**.
-- **Next.js 15+ & React 19**: App Router patterns are strictly followed (Server vs Client components).
+- **Next.js 16+ & React 19**: App Router patterns are strictly followed (Server vs Client components).
+  In nextjs 16 instead of `middleware,ts` you use `proxy.ts`. It acts the same, but with a different name.
 - **Tailwind CSS 4**: Uses the new CSS-first configuration. Use modern Tailwind utility classes.
 - **Components**:
   - `components/ui/`: Primitive, reusable UI components (Radix/shadcn).
@@ -28,7 +29,7 @@ This is a Next.js application that serves as a personal brand platform, includin
   3. Ensure `lib/getCVByRole.ts` handles the new fields/sections if they are part of the CV.
   4. Create/update components in `components/about/` or `components/blog/`.
   5. Update `lib/cv-pdf-document.tsx` if the change should reflect in the PDF export.
-- **New Labels**: UI-only translations go in `i18n/labels.ts`.
+- **New Labels**: Static UI strings go in `messages/en.json` and `messages/es.json`. Group them by namespace (e.g., `cv`, `nav`, `blog`).
 
 ## 📜 Development Scripts
 
@@ -42,6 +43,11 @@ Use `bun` for all execution:
 ## ⚠️ Important Patterns & Strictness
 
 - **TypeScript**: **No `any` allowed.** Ensure all data structures are properly typed according to the schemas.
-- **Don't hardcode translations**: Always use `LocalizedString` for dynamic content or `uiLabels` from `i18n/labels.ts` for static UI strings.
-- **Context Usage**: Access role/locale via `useRole()` and `useLocale()` hooks.
+- **Don't hardcode translations**:
+  - Always use `LocalizedString` for dynamic content stored in `storage/data/`.
+  - Use `next-intl` for static UI strings.
+  - In **Server Components**, use `getTranslations()` or `getLocale()` from `next-intl/server`.
+  - In **Client Components**, use the `useTranslations()` and `useLocale()` hooks.
+  - Components and routes within the `app/[locale]` folder automatically have access to the current locale context.
+- **Context Usage**: Access role via `useRole()` (custom context) and locale via `next-intl` hooks or server-side functions.
 - **PDF Sync**: When changing an "About" section's logic, always check `lib/cv-pdf-document.tsx`. It does not share components with the web view as `@react-pdf` requires specific primitives like `<View>`, `<Text>`, and `<Link>`.
