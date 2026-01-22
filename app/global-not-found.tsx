@@ -6,7 +6,7 @@ import { RoleProvider } from "@/context/role-context";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { NotFoundView } from "@/components/not-found-view";
-import enMessages from "@/messages/en.json";
+import enMessages from "@/i18n/messages/en.json";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({

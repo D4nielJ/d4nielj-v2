@@ -7,6 +7,7 @@ import {
   Link,
 } from "@react-pdf/renderer";
 import { ResolvedCV } from "@/lib/getCVByRole";
+import enMessages from "@/i18n/messages/en.json";
 
 const styles = StyleSheet.create({
   page: {
@@ -119,8 +120,6 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
 });
-
-import enMessages from "@/messages/en.json";
 
 type Messages = typeof enMessages;
 

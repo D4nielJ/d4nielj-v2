@@ -5,8 +5,8 @@ import { getCVByRole } from "@/lib/getCVByRole";
 import { CVPdfDocument } from "@/lib/cv-pdf-document";
 import { Locale } from "@/storage/schema/cv";
 import { VisibilityRole } from "@/storage/schema/cv";
-import enMessages from "@/messages/en.json";
-import esMessages from "@/messages/es.json";
+import enMessages from "@/i18n/messages/en.json";
+import esMessages from "@/i18n/messages/es.json";
 
 const messages: Record<Locale, typeof enMessages> = {
   en: enMessages,

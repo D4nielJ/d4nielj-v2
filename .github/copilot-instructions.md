@@ -29,7 +29,7 @@ This is a Next.js application that serves as a personal brand platform, includin
   3. Ensure `lib/getCVByRole.ts` handles the new fields/sections if they are part of the CV.
   4. Create/update components in `components/about/` or `components/blog/`.
   5. Update `lib/cv-pdf-document.tsx` if the change should reflect in the PDF export.
-- **New Labels**: Static UI strings go in `messages/en.json` and `messages/es.json`. Group them by namespace (e.g., `cv`, `nav`, `blog`).
+- **New Labels**: Static UI strings go in `i18n/messages/en.json` and `i18n/messages/es.json`. Group them by namespace (e.g., `cv`, `nav`, `blog`).
 
 ## 📜 Development Scripts
 
