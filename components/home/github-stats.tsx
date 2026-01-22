@@ -71,7 +71,7 @@ export async function GitHubStatsDisplay() {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-2">
       <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
         <StatItem
           icon={FolderLibraryIcon}
@@ -87,11 +87,6 @@ export async function GitHubStatsDisplay() {
           icon={GitForkIcon}
           value={stats.totalForks}
           label={tGithub("forks")}
-        />
-        <StatItem
-          icon={UserMultiple02Icon}
-          value={stats.user.followers}
-          label={t("followers")}
         />
         <StatItem
           icon={Calendar03Icon}

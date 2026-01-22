@@ -33,7 +33,7 @@ export default async function HomePage() {
       typeof cvData.profile.title === "string"
         ? cvData.profile.title
         : cvData.profile.title[validLocale],
-    description: profile.summary,
+    description: cvData.profile.shortSummary,
     url: BASE_URL,
     email: cvData.profile.email,
     telephone: cvData.profile.phone,
@@ -58,14 +58,19 @@ export default async function HomePage() {
         <MainGridColumn>
           <main className="w-full py-8 space-y-8">
             {/* Hero / Introduction */}
-            <section className="space-y-4">
+            <section className="space-y-6">
               <div>
                 <h1 className="text-2xl font-bold tracking-tight">
                   {profile.name}
                 </h1>
                 <p className="text-muted-foreground text-lg">{profile.title}</p>
               </div>
-              <p className="leading-relaxed">{profile.summary}</p>
+
+              <p className="text-muted-foreground pl-4 italic border-l-2 text-sm">
+                {cvData.profile.shortSummary[validLocale]}
+              </p>
+              <p className="leading-relaxed">{t("welcomeMessage")}</p>
+
               <div className="flex gap-4 pt-2">
                 <Link
                   href="/about"
@@ -76,10 +81,9 @@ export default async function HomePage() {
               </div>
             </section>
 
-            <Separator />
-
             {/* GitHub Stats */}
             <section>
+              <Separator className="mb-2" />
               <Suspense fallback={<StatsSkeleton />}>
                 <GitHubStatsDisplay />
               </Suspense>

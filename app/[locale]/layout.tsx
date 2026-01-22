@@ -24,7 +24,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const { locale } = (await params) as { locale: "en" | "es" };
   const profile = cvData.profile;
 
   const title =
@@ -33,9 +33,9 @@ export async function generateMetadata({
       : `${profile.name} | Software Engineer`;
 
   const description =
-    typeof profile.summary === "string"
-      ? profile.summary
-      : profile.summary[locale as "en" | "es"];
+    typeof profile.shortSummary === "string"
+      ? profile.shortSummary
+      : profile.shortSummary[locale];
 
   return {
     title: {
