@@ -8,8 +8,9 @@ export interface BlogFigure {
 }
 
 export interface BlogSection {
-  type: "paragraph" | "heading" | "figure" | "list";
+  type: "paragraph" | "heading" | "figure" | "list" | "block-code";
   content?: LocalizedString;
+  language?: string; // For block-code
   level?: 2 | 3; // For headings
   figureId?: string; // Reference to a figure
   items?: LocalizedString[]; // For lists
@@ -33,8 +34,9 @@ export interface ResolvedBlogFigure {
 }
 
 export interface ResolvedBlogSection {
-  type: "paragraph" | "heading" | "figure" | "list";
+  type: "paragraph" | "heading" | "figure" | "list" | "block-code";
   content?: string;
+  language?: string; // For block-code
   level?: 2 | 3;
   figureId?: string;
   items?: string[];
@@ -77,6 +79,7 @@ export function resolveBlogPost(
       content: section.content
         ? resolveString(section.content, locale)
         : undefined,
+      language: section.language,
       level: section.level,
       figureId: section.figureId,
       items: section.items?.map((item) => resolveString(item, locale)),

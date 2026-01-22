@@ -1,6 +1,8 @@
 import { BlogPost } from "../schema/blog";
+import { post2 } from "./posts/post-2";
 
 export const postsData: BlogPost[] = [
+  post2,
   {
     slug: "ai-reshapes-development-2026",
     title: {

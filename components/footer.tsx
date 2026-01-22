@@ -12,8 +12,8 @@ const REPO_URL = "https://github.com/D4nielJ/d4nielj-v2";
 export async function Footer() {
   const t = await getTranslations("footer");
 
-  const githubLink = cvData.profile.links.find((link) =>
-    link.url.includes("github.com"),
+  const githubLink = cvData.profile.links.find(
+    (link) => link.label === "GitHub",
   );
 
   const linkedinLink = cvData.profile.links.find(

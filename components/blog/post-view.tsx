@@ -2,6 +2,7 @@ import { ResolvedBlogPost } from "@/storage/schema/blog";
 import { Figure } from "./figure";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import BlockCodeCard from "./block-code";
 
 interface PostViewProps {
   post: ResolvedBlogPost;
@@ -98,6 +99,8 @@ export function PostView({ post }: PostViewProps) {
                   ))}
                 </ul>
               );
+            case "block-code":
+              return <BlockCodeCard section={section} key={idx} />;
             default:
               return null;
           }
