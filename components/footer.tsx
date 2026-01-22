@@ -1,5 +1,9 @@
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Mail01Icon, Github01Icon } from "@hugeicons/core-free-icons";
+import {
+  Mail01Icon,
+  Github01Icon,
+  Linkedin01Icon,
+} from "@hugeicons/core-free-icons";
 import { getTranslations } from "next-intl/server";
 import { cvData } from "@/storage/data/cv";
 
@@ -10,6 +14,10 @@ export async function Footer() {
 
   const githubLink = cvData.profile.links.find((link) =>
     link.url.includes("github.com"),
+  );
+
+  const linkedinLink = cvData.profile.links.find(
+    (link) => link.label === "LinkedIn",
   );
 
   return (
@@ -27,6 +35,18 @@ export async function Footer() {
           >
             <HugeiconsIcon icon={Mail01Icon} className="size-4" />
           </a>
+
+          {linkedinLink && (
+            <a
+              href={linkedinLink.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-foreground"
+              aria-label="LinkedIn"
+            >
+              <HugeiconsIcon icon={Linkedin01Icon} className="size-4" />
+            </a>
+          )}
 
           {githubLink && (
             <a
