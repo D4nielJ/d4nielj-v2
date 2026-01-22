@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Daniel J. | Software Engineer",
   description:
-    "Personal site and interactive CV for Daniel J., a software engineer specializing in full-stack development, frontend, backend, and test automation.",
+    "Personal site and interactive CV for Daniel Jaramillo, a software engineer specializing in full-stack development, frontend, backend, and test automation.",
   verification: {
     google: "8fUYCitoBO-eZ9xLmF-AbPToym_pyOeyR6ios4aRglk",
   },
