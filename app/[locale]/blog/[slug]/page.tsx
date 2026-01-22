@@ -11,12 +11,13 @@ import BaseGrid, {
 import { Locale } from "@/storage/schema/cv";
 import { cvData } from "@/storage/data/cv";
 import type { Metadata } from "next";
+import siteOptions from "@/lib/siteOptions";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string; locale: string }>;
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://d4nielj.me";
+const BASE_URL = siteOptions.BASE_URL;
 const authorName = cvData.profile.name;
 
 export async function generateMetadata({

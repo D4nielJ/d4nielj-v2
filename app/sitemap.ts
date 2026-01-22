@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { postsData } from "@/storage/data/posts";
+import siteOptions from "@/lib/siteOptions";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://d4nielj.me";
+const BASE_URL = siteOptions.BASE_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const locales = routing.locales;

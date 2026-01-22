@@ -10,13 +10,14 @@ import { routing } from "@/i18n/routing";
 import { cvData } from "@/storage/data/cv";
 import Loading from "./loading";
 import type { Metadata } from "next";
+import siteOptions from "@/lib/siteOptions";
 
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://d4nielj.me";
+const BASE_URL = siteOptions.BASE_URL;
 
 export async function generateMetadata({
   params,

@@ -1,6 +1,7 @@
+import siteOptions from "@/lib/siteOptions";
 import { MetadataRoute } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://d4nielj.me";
+const BASE_URL = siteOptions.BASE_URL;
 
 export default function robots(): MetadataRoute.Robots {
   return {

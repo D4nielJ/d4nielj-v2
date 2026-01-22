@@ -1,10 +1,11 @@
 import { GitHubRepo, GitHubUser, GitHubStats } from "@/storage/schema/github";
+import siteOptions from "./siteOptions";
 
 const GITHUB_USERNAME = "d4nielj";
 const GITHUB_API_BASE = "https://api.github.com";
 const GITHUB_REPOS_URL = `${GITHUB_API_BASE}/users/${GITHUB_USERNAME}/repos`;
 const GITHUB_USER_URL = `${GITHUB_API_BASE}/users/${GITHUB_USERNAME}`;
-const REVALIDATE_TIME = 600; // 10 minutes
+const REVALIDATE_TIME = siteOptions.GITHUB_REVALIDATION_INTERVAL;
 
 export interface FetchGitHubReposOptions {
   /** Number of repos to return (default: 6) */
