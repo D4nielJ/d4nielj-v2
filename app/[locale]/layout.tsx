@@ -59,6 +59,7 @@ export async function generateMetadata({
       locale: locale === "es" ? "es_ES" : "en_US",
       alternateLocale: locale === "es" ? "en_US" : "es_ES",
       type: "website",
+      images: [`${BASE_URL}/card.png`],
     },
     twitter: {
       card: "summary_large_image",

@@ -25,6 +25,7 @@ export interface Profile {
     url: string;
   }[];
   summary: LocalizedString;
+  shortSummary: LocalizedString;
   roleSummaries: Partial<
     Record<Exclude<VisibilityRole, "all">, LocalizedString>
   >;

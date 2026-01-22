@@ -21,6 +21,10 @@ export const cvData: CV = {
       en: "Passionate about computer science and software development, I find pleasure in creating fast, efficient, and high-quality systems. Since a young age, I have always liked a good challenge or facing complex problems, which has shaped my career as a Software Engineer. Nowadays, I'm thrilled to leverage the power of modern web technologies and AI to build innovative solutions that make a difference.",
       es: "Apasionado por la informática y el desarrollo de software, encuentro placer en crear sistemas rápidos, eficientes y de alta calidad. Desde joven, siempre me han gustado los buenos desafíos o enfrentar problemas complejos, lo que ha moldeado mi carrera como Ingeniero de Software. Hoy en día, estoy emocionado de aprovechar el poder de las tecnologías web modernas y la IA para construir soluciones innovadoras que marquen la diferencia.",
     },
+    shortSummary: {
+      en: "Software Engineer specializing in Full Stack Development and Test Automation, leveraging modern web technologies and AI to build innovative solutions.",
+      es: "Ingeniero de Software especializado en Desarrollo Full Stack y Automatización de Pruebas, aprovechando tecnologías web modernas y IA para construir soluciones innovadoras.",
+    },
     roleSummaries: {},
   },
   experience: [
