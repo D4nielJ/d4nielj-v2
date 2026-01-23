@@ -18,7 +18,6 @@ export interface Profile {
   name: string;
   title: LocalizedString;
   email: string;
-  phone: string;
   location: LocalizedString;
   links: {
     label: string;

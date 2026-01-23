@@ -69,7 +69,11 @@ const BlockCodeCard = ({ section }: { section: ResolvedBlogSection }) => {
         </div>
       </CardHeader>
       <CardContent>
-        <code className="text-base">{section.content}</code>
+        <pre>
+          <code className="text-base whitespace-pre-wrap">
+            {section.content}
+          </code>
+        </pre>
       </CardContent>
     </Card>
   );

@@ -29,13 +29,15 @@ export function ProfileSection({ profile }: ProfileSectionProps) {
           <HugeiconsIcon icon={Mail01Icon} className="size-4" />
           {profile.email}
         </a>
-        <a
-          href={`tel:${profile.phone}`}
-          className="flex items-center gap-1.5 hover:text-foreground transition-colors"
-        >
-          <HugeiconsIcon icon={SmartPhone01Icon} className="size-4" />
-          {profile.phone}
-        </a>
+        {profile.phone && (
+          <a
+            href={`tel:${profile.phone}`}
+            className="flex items-center gap-1.5 hover:text-foreground transition-colors"
+          >
+            <HugeiconsIcon icon={SmartPhone01Icon} className="size-4" />
+            {profile.phone}
+          </a>
+        )}
         <span className="flex items-center gap-1.5">
           <HugeiconsIcon icon={Location01Icon} className="size-4" />
           {profile.location}

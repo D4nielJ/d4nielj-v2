@@ -8,7 +8,6 @@ export const cvData: CV = {
       es: "Ingeniero de Software – Full Stack y Automatización",
     },
     email: "d4niel.djm@gmail.com",
-    phone: "+57 321 698 9816",
     location: {
       en: "Remote / Colombia",
       es: "Remoto / Colombia",

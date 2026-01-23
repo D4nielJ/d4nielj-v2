@@ -17,7 +17,6 @@ export interface ResolvedProfile {
   name: string;
   title: string;
   email: string;
-  phone: string;
   location: string;
   links: { label: string; url: string }[];
   summary: string;
@@ -96,7 +95,6 @@ function resolveProfile(
     name: profile.name,
     title: resolveString(profile.title, locale),
     email: profile.email,
-    phone: profile.phone,
     location: resolveString(profile.location, locale),
     links: profile.links,
     summary: resolveString(profile.summary, locale),

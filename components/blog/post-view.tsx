@@ -60,9 +60,9 @@ export function PostView({ post }: PostViewProps) {
           switch (section.type) {
             case "paragraph":
               return (
-                <p key={idx} className="leading-relaxed">
+                <div key={idx} className="leading-relaxed">
                   <Markdown>{section.content}</Markdown>
-                </p>
+                </div>
               );
             case "heading":
               if (section.level === 2) {
