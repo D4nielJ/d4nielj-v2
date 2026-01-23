@@ -12,12 +12,25 @@ export const post2: BlogPost = {
   },
   publishedAt: "2025-01-22T08:00:00-05:00",
   tags: ["AI", "Workflow", "Software Engineering"],
-  figures: [],
+  figures: [
+    {
+      id: "fig-1",
+      src: "/images/blog/post-2/image.png",
+      alt: {
+        en: "Developer frustrated at its computer",
+        es: "Desarrollador frustrado en su computadora",
+      },
+      caption: {
+        en: "No one wants to be this guy.",
+        es: "Nadie quiere ser este tipo.",
+      },
+    },
+  ],
   sections: [
     {
       type: "paragraph",
       content: {
-        en: "We live in a new era. Programming doesn’t look anything like what it used to five years ago, let alone ten or twenty. AI tools are everywhere: from our command line to the cloud. And they’re meant to be used.",
+        en: "Yes, the paradigm has changed, is undeniable. Programming doesn’t look anything like what it used to five years ago, let alone ten or twenty. AI tools are everywhere: from our command line to the cloud. And they’re meant to be used.",
         es: "Vivimos en una nueva era. La programación no se parece en nada a lo que era hace cinco años, y mucho menos hace diez o veinte. Las herramientas de IA están en todas partes: desde nuestra línea de comandos hasta la nube. Y están hechas para ser usadas.",
       },
     },
@@ -41,6 +54,10 @@ export const post2: BlogPost = {
         en: "Why? Simple: bugs will flow, and things will spiral out of control very quickly.",
         es: "¿Por qué? Simple: los errores fluirán y las cosas se saldrán de control muy rápidamente.",
       },
+    },
+    {
+      type: "figure",
+      figureId: "fig-1",
     },
     {
       type: "paragraph",

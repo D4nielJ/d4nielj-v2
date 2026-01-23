@@ -36,9 +36,13 @@ export default async function BlogPage() {
             <h1 className="text-2xl font-bold tracking-tight">{t("blog")}</h1>
           </header>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             {posts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`}>
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="block"
+              >
                 <Card className="transition-colors cursor-pointer hover:bg-muted/50">
                   <CardHeader className="pb-2">
                     <div className="text-muted-foreground flex items-center gap-2 mb-1 text-xs">
