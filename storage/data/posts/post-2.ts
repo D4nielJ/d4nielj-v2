@@ -11,7 +11,7 @@ export const post2: BlogPost = {
     es: "Vivimos en una nueva era. La programación no se parece en nada a lo que era hace cinco años. Así es como puedes mantener el control de tu flujo de trabajo con IA.",
   },
   publishedAt: "2025-01-22T08:00:00-05:00",
-  tags: ["AI", "Workflow", "Software Engineering"],
+  tags: ["AI", "Workflow", "Productivity"],
   figures: [
     {
       id: "fig-1",

@@ -3,6 +3,7 @@ import { Figure } from "./figure";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import BlockCodeCard from "./block-code";
+import Markdown from "react-markdown";
 
 interface PostViewProps {
   post: ResolvedBlogPost;
@@ -60,7 +61,7 @@ export function PostView({ post }: PostViewProps) {
             case "paragraph":
               return (
                 <p key={idx} className="leading-relaxed">
-                  {section.content}
+                  <Markdown>{section.content}</Markdown>
                 </p>
               );
             case "heading":
