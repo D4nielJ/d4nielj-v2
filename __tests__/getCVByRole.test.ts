@@ -50,11 +50,10 @@ describe("getCVByRole", () => {
       },
     );
 
-    it("preserves profile email and phone", () => {
+    it("preserves profile email", () => {
       const resolved = getCVByRole(cvData, "en", "fullstack");
 
       expect(resolved.profile.email).toBe(cvData.profile.email);
-      expect(resolved.profile.phone).toBe(cvData.profile.phone);
     });
 
     it("preserves profile links", () => {

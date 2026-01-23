@@ -10,7 +10,7 @@ export const post2: BlogPost = {
     en: "We live in a new era. Programming doesn’t look anything like what it used to five years ago. Here is how to stay in control of your AI workflow.",
     es: "Vivimos en una nueva era. La programación no se parece en nada a lo que era hace cinco años. Así es como puedes mantener el control de tu flujo de trabajo con IA.",
   },
-  publishedAt: "2025-01-22T08:00:00-05:00",
+  publishedAt: "2025-01-23",
   tags: ["AI", "Workflow", "Productivity"],
   figures: [
     {

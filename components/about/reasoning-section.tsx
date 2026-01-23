@@ -1,20 +1,13 @@
 "use client";
 
 import { ResolvedReasoningCase } from "@/lib/getCVByRole";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface ReasoningSectionProps {
   reasoning: ResolvedReasoningCase[];
-  title: string;
 }
 
-export function ReasoningSection({ reasoning, title }: ReasoningSectionProps) {
+export function ReasoningSection({ reasoning }: ReasoningSectionProps) {
   if (reasoning.length === 0) return null;
 
   return (

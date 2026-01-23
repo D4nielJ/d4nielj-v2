@@ -156,7 +156,6 @@ export function CVPdfDocument({ cv, messages }: CVPdfDocumentProps) {
           <Text style={styles.title}>{cv.profile.title}</Text>
           <View style={styles.contactRow}>
             <Text>{cv.profile.email}</Text>
-            <Text>{cv.profile.phone}</Text>
             <Text>{cv.profile.location}</Text>
           </View>
           <View style={styles.linksRow}>

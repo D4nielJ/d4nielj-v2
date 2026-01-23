@@ -29,15 +29,16 @@ export function ThemeProvider({
   children,
   defaultTheme = "system",
 }: ThemeProviderProps) {
-  const [theme, setThemeState] = useState<Theme>(defaultTheme);
-  const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");
-
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
-    if (stored) {
-      setThemeState(stored);
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
+      if (stored) {
+        return stored;
+      }
     }
-  }, []);
+    return defaultTheme;
+  });
+  const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
     const root = window.document.documentElement;

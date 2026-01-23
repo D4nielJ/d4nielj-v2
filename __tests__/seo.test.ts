@@ -6,6 +6,44 @@ import { Locale } from "@/storage/schema/cv";
 import siteOptions from "@/lib/siteOptions";
 import { generateMetadata as generateLayoutMetadataFn } from "@/app/[locale]/layout";
 import { generateMetadata as generateBlogPostMetadataFn } from "@/app/[locale]/blog/[slug]/page";
+import type { Metadata } from "next";
+
+// Helper to safely access OpenGraph properties
+function getOpenGraphValue<T>(metadata: Metadata, key: string): T | undefined {
+  const og = metadata.openGraph;
+  if (!og || typeof og !== "object") return undefined;
+  return (og as Record<string, unknown>)[key] as T | undefined;
+}
+
+// Helper to safely access Twitter properties
+function getTwitterValue<T>(metadata: Metadata, key: string): T | undefined {
+  const twitter = metadata.twitter;
+  if (!twitter || typeof twitter !== "object") return undefined;
+  return (twitter as Record<string, unknown>)[key] as T | undefined;
+}
+
+// Helper to get image URL from various image formats
+function getImageUrl(
+  image: string | { url?: string | URL } | URL | undefined,
+): string | undefined {
+  if (!image) return undefined;
+  if (typeof image === "string") return image;
+  if (image instanceof URL) return image.toString();
+  if ("url" in image) {
+    const url = image.url;
+    return url instanceof URL ? url.toString() : url;
+  }
+  return undefined;
+}
+
+// Helper to get first image URL from images array
+function getFirstImageUrl(images: unknown): string | undefined {
+  if (!images) return undefined;
+  if (Array.isArray(images) && images.length > 0) {
+    return getImageUrl(images[0] as string | { url?: string | URL } | URL);
+  }
+  return undefined;
+}
 
 /**
  * SEO Test Suite
@@ -122,7 +160,7 @@ describe("SEO: Layout Metadata Generation (actual function)", () => {
         expect(metadata.openGraph?.url).toBeDefined();
         expect(metadata.openGraph?.siteName).toBeDefined();
         expect(metadata.openGraph?.locale).toBeDefined();
-        expect(metadata.openGraph?.type).toBe("website");
+        expect(getOpenGraphValue(metadata, "type")).toBe("website");
       },
     );
 
@@ -149,7 +187,7 @@ describe("SEO: Layout Metadata Generation (actual function)", () => {
       async (locale) => {
         const metadata = await getLayoutMetadata(locale);
 
-        expect(metadata.twitter?.card).toBe("summary_large_image");
+        expect(getTwitterValue(metadata, "card")).toBe("summary_large_image");
         expect(metadata.twitter?.title).toBeDefined();
         expect(metadata.twitter?.description).toBeDefined();
         expect(metadata.twitter?.images).toBeDefined();
@@ -158,11 +196,9 @@ describe("SEO: Layout Metadata Generation (actual function)", () => {
 
     it("Twitter card image URL is absolute", async () => {
       const metadata = await getLayoutMetadata("en");
-      const images = metadata.twitter?.images;
+      const firstImage = getFirstImageUrl(metadata.twitter?.images);
 
-      if (Array.isArray(images) && images.length > 0) {
-        const firstImage =
-          typeof images[0] === "string" ? images[0] : images[0].url;
+      if (firstImage) {
         expect(firstImage).toMatch(/^https?:\/\//);
       }
     });
@@ -260,7 +296,7 @@ describe("SEO: Blog Post Metadata Generation (actual function)", () => {
           async (locale) => {
             const metadata = await getBlogPostMetadata(post.slug, locale);
 
-            expect(metadata.openGraph?.type).toBe("article");
+            expect(getOpenGraphValue(metadata, "type")).toBe("article");
           },
         );
 
@@ -269,10 +305,12 @@ describe("SEO: Blog Post Metadata Generation (actual function)", () => {
           async (locale) => {
             const metadata = await getBlogPostMetadata(post.slug, locale);
 
-            expect(metadata.openGraph?.publishedTime).toBe(post.publishedAt);
-            expect(metadata.openGraph?.publishedTime).toMatch(
-              /^\d{4}-\d{2}-\d{2}$/,
+            expect(getOpenGraphValue(metadata, "publishedTime")).toBe(
+              post.publishedAt,
             );
+            expect(
+              getOpenGraphValue<string>(metadata, "publishedTime"),
+            ).toMatch(/^\d{4}-\d{2}-\d{2}$/);
           },
         );
 
@@ -280,9 +318,15 @@ describe("SEO: Blog Post Metadata Generation (actual function)", () => {
           "author attribution is correct for locale %s",
           async (locale) => {
             const metadata = await getBlogPostMetadata(post.slug, locale);
+            const authors = metadata.authors;
+            const firstAuthorName = Array.isArray(authors)
+              ? authors[0]?.name
+              : undefined;
 
-            expect(metadata.authors?.[0].name).toBe(authorName);
-            expect(metadata.openGraph?.authors).toContain(authorName);
+            expect(firstAuthorName).toBe(authorName);
+            expect(getOpenGraphValue<string[]>(metadata, "authors")).toContain(
+              authorName,
+            );
           },
         );
 
@@ -314,10 +358,8 @@ describe("SEO: Blog Post Metadata Generation (actual function)", () => {
               const resolvedPost = resolveBlogPost(post, locale);
 
               expect(metadata.twitter?.images).toBeDefined();
-              const images = metadata.twitter?.images;
-              if (Array.isArray(images) && images.length > 0) {
-                const firstImage =
-                  typeof images[0] === "string" ? images[0] : images[0].url;
+              const firstImage = getFirstImageUrl(metadata.twitter?.images);
+              if (firstImage) {
                 expect(firstImage).toBe(
                   `${BASE_URL}${resolvedPost.figures[0].src}`,
                 );
@@ -330,21 +372,13 @@ describe("SEO: Blog Post Metadata Generation (actual function)", () => {
             async (locale) => {
               const metadata = await getBlogPostMetadata(post.slug, locale);
 
-              const ogImages = metadata.openGraph?.images;
-              if (Array.isArray(ogImages) && ogImages.length > 0) {
-                const firstOgImage =
-                  typeof ogImages[0] === "string"
-                    ? ogImages[0]
-                    : ogImages[0].url;
+              const firstOgImage = getFirstImageUrl(metadata.openGraph?.images);
+              if (firstOgImage) {
                 expect(firstOgImage).toMatch(/^https?:\/\//);
               }
 
-              const twImages = metadata.twitter?.images;
-              if (Array.isArray(twImages) && twImages.length > 0) {
-                const firstTwImage =
-                  typeof twImages[0] === "string"
-                    ? twImages[0]
-                    : twImages[0].url;
+              const firstTwImage = getFirstImageUrl(metadata.twitter?.images);
+              if (firstTwImage) {
                 expect(firstTwImage).toMatch(/^https?:\/\//);
               }
             },

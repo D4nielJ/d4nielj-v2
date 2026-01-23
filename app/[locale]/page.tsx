@@ -36,7 +36,6 @@ export default async function HomePage() {
     description: cvData.profile.shortSummary,
     url: BASE_URL,
     email: cvData.profile.email,
-    telephone: cvData.profile.phone,
     address: {
       "@type": "PostalAddress",
       addressLocality:

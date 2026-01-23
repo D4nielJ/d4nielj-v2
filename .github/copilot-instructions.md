@@ -40,6 +40,12 @@ Use `bun` for all execution:
 - `bun lint`: Runs ESLint to check for code quality issues.
 - `bun start`: Starts the production server.
 
+- IMPORTANT (for automated agents and developers): After making any code or content changes, always run:
+  ```
+  bun run test:ai
+  ```
+  This must be executed every time changes are made to validate the modifications before committing or publishing.
+
 ## ⚠️ Important Patterns & Strictness
 
 - **TypeScript**: **No `any` allowed.** Ensure all data structures are properly typed according to the schemas.

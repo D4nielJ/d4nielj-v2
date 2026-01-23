@@ -2,7 +2,6 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import {
   StarIcon,
   GitForkIcon,
-  UserMultiple02Icon,
   FolderLibraryIcon,
   Calendar03Icon,
   CodeIcon,

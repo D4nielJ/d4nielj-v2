@@ -29,7 +29,7 @@ export function CVView({ locale }: { locale: Locale }) {
         <ProjectsSection projects={cv.projects} title={t("projects")} />
         <SkillsSection skills={cv.skills} title={t("skills")} />
         <EducationSection education={cv.education} title={t("education")} />
-        <ReasoningSection reasoning={cv.reasoning} title={t("reasoning")} />
+        <ReasoningSection reasoning={cv.reasoning} />
       </main>
     </div>
   );

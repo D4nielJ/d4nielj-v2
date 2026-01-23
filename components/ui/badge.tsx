@@ -41,6 +41,7 @@ function Badge({
       data-slot="badge"
       data-variant={variant}
       className={cn(badgeVariants({ variant }), className)}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Slot.Root requires flexible typing due to ref incompatibility
       {...(props as any)}
     />
   );

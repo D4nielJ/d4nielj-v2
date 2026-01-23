@@ -57,6 +57,7 @@ function Button({
       data-variant={variant}
       data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Slot.Root requires flexible typing due to ref incompatibility
       {...(props as any)}
     />
   );
